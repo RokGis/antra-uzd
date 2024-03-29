@@ -23,10 +23,11 @@ int main()
             duomskait = dskaitpatikra();
         }
         char ski;
+        int skistr;
 
         list<studentas> A; //sudaromas list
-        list<kietiakas> K; 
-        list<vargsiukas> V; 
+        list<studentas> K; 
+        list<studentas> V; 
 
         if ((ivedbudas == 1 || ivedbudas == 2) && duomskait == 'f')
         {
@@ -35,8 +36,11 @@ int main()
             ski = skirstymopatikra();
             if (ski == 't')
             {
-                skirstymas(A, K, V);
-                irasymasifailaK(A, K, V, budas);
+                skistr = skirststratpat();
+                if (skistr == 1) {skirstymas1(A, K, V);}
+                if (skistr == 2) {skirstymas2(A, V);}
+                if (skistr == 3) {skirstymas3(A, K, V);}
+                irasymasifailaK(A, K, V, budas, skistr);
             }
             else if (ski == 'n')
             {
@@ -62,8 +66,11 @@ int main()
             ski = skirstymopatikra();
             if (ski == 't')
             {
-                skirstymas(A, K, V);
-                irasymasifailaK(A, K, V, budas);
+                skistr = skirststratpat();
+                if (skistr == 1) {skirstymas1(A, K, V);}
+                if (skistr == 2) {skirstymas2(A, V);}
+                if (skistr == 3) {skirstymas3(A, K, V);}
+                irasymasifailaK(A, K, V, budas, skistr);
             }
             else if (ski == 'n')
             {
@@ -96,8 +103,11 @@ int main()
             ski = skirstymopatikra();
             if (ski == 't')
             {
-                skirstymas(A, K, V);
-                irasymasifailaK(A, K, V, budas);
+                skistr = skirststratpat();
+                if (skistr == 1) {skirstymas1(A, K, V);}
+                if (skistr == 2) {skirstymas2(A, V);}
+                if (skistr == 3) {skirstymas3(A, K, V);}
+                irasymasifailaK(A, K, V, budas, skistr);
             }
             else if (ski == 'n')
             {

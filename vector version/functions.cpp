@@ -6,7 +6,7 @@ int tlaikas = 0;
 void skaitymasisfailo(vector<studentas> &A, char budas, char ivedbudas)
 {
     int sum = 0;
-    ifstream in("studentai10000000.txt");
+    ifstream in("studentai1000.txt");
     
     try {
         if (!in.is_open()) {
@@ -213,61 +213,49 @@ void rikiavimas(vector<studentas> &A)
     tlaikas += duration.count();
 }
 
-////1 strategija
-// void skirstymas(vector<studentas> &A, vector<kietiakas> &K, vector<vargsiukas> &V)
-// {
-//     auto start = high_resolution_clock::now();
-//     for (int i = 0; i < A.size(); i++)
-//     {
-//         if (A[i].gbalas >= 5.0)
-//         {
-//             kietiakas k;
-//             k.vardas = A[i].vardas;
-//             k.pavarde = A[i].pavarde;
-//             k.gbalas = A[i].gbalas;
-//             K.push_back(k);
-//         }
-//         if (A[i].gbalas < 5.0)
-//         {
-//             vargsiukas v;
-//             v.vardas = A[i].vardas;
-//             v.pavarde = A[i].pavarde;
-//             v.gbalas = A[i].gbalas;
-//             V.push_back(v);
-//         }
-//     }
-//     auto stop = high_resolution_clock::now();
-//     auto duration = duration_cast<milliseconds>(stop - start);
+//1 strategija
+void skirstymas1(vector<studentas> &A, vector<studentas> &K, vector<studentas> &V)
+{
+    auto start = high_resolution_clock::now();
+    for (int i = 0; i < A.size(); i++)
+    {
+        if (A[i].gbalas >= 5.0)
+        {
+            K.push_back(A[i]);
+        }
+        if (A[i].gbalas < 5.0)
+        {
+            V.push_back(A[i]);
+        }
+    }
+    auto stop = high_resolution_clock::now();
+    auto duration = duration_cast<milliseconds>(stop - start);
 
-//     cout << "Studentų skirstymas užtruko: " << duration.count() << " milliseconds" << endl;
-//     tlaikas += duration.count();
-// }
+    cout << "Studentų skirstymas užtruko: " << duration.count() << " milliseconds" << endl;
+    tlaikas += duration.count();
+}
 
-// //2 strategija
-// void skirstymas(vector<studentas> &A, vector<kietiakas> &K, vector<vargsiukas> &V)
-// {
-//     auto start = high_resolution_clock::now();
-//     for (int i = A.size()-1; i >= 0; i--)
-//     {
-//         if (A[i].gbalas < 5.0)
-//         {
-//             vargsiukas v;
-//             v.vardas = A[i].vardas;
-//             v.pavarde = A[i].pavarde;
-//             v.gbalas = A[i].gbalas;
-//             V.push_back(v);
-//             A.pop_back();
-//         }
-//     }
-//     auto stop = high_resolution_clock::now();
-//     auto duration = duration_cast<milliseconds>(stop - start);
+//2 strategija
+void skirstymas2(vector<studentas> &A, vector<studentas> &V)
+{
+    auto start = high_resolution_clock::now();
+    for (int i = A.size()-1; i >= 0; i--)
+    {
+        if (A[i].gbalas < 5.0)
+        {
+            V.push_back(A[i]);
+            A.pop_back();
+        }
+    }
+    auto stop = high_resolution_clock::now();
+    auto duration = duration_cast<milliseconds>(stop - start);
 
-//     cout << "Studentų skirstymas užtruko: " << duration.count() << " milliseconds" << endl;
-//     tlaikas += duration.count();
-// }
+    cout << "Studentų skirstymas užtruko: " << duration.count() << " milliseconds" << endl;
+    tlaikas += duration.count();
+}
 
 //3 strategija
-void skirstymas(vector<studentas> &A, vector<kietiakas> &K, vector<vargsiukas> &V)
+void skirstymas3(vector<studentas> &A, vector<studentas> &K, vector<studentas> &V)
 {
     auto start = high_resolution_clock::now();
 
@@ -276,19 +264,11 @@ void skirstymas(vector<studentas> &A, vector<kietiakas> &K, vector<vargsiukas> &
     });
 
     transform(A.begin(), partition_point, back_inserter(K), [](const studentas& s) {
-        kietiakas k;
-        k.vardas = s.vardas;
-        k.pavarde = s.pavarde;
-        k.gbalas = s.gbalas;
-        return k;
+        return s;
     });
 
     transform(partition_point, A.end(), back_inserter(V), [](const studentas& s) {
-        vargsiukas v;
-        v.vardas = s.vardas;
-        v.pavarde = s.pavarde;
-        v.gbalas = s.gbalas;
-        return v;
+        return s;
     });
 
     auto stop = high_resolution_clock::now();
@@ -298,7 +278,7 @@ void skirstymas(vector<studentas> &A, vector<kietiakas> &K, vector<vargsiukas> &
     tlaikas += duration.count();
 }
 
-void irasymasifailaK(vector<studentas> &A, vector<kietiakas> &K, vector<vargsiukas> &V, char budas)
+void irasymasifailaK(vector<studentas> &A, vector<studentas> &K, vector<studentas> &V, char budas, int skistr)
 {
     auto start = high_resolution_clock::now(); 
     ofstream outK("kietiakai.txt");
@@ -311,15 +291,21 @@ void irasymasifailaK(vector<studentas> &A, vector<kietiakas> &K, vector<vargsiuk
          bufferK << setw(25) << left << "Vardas" << setw(25) << left << "Pavarde" << setw(25) << left << "Galutinis (Med.)" << endl;}
     bufferK << "---------------------------------------------------------------------------------------------------" << endl;
     //1 strategija
-    for (int i = 0; i < K.size(); i++)
+    if (skistr == 1 || skistr == 3)
     {
-        bufferK << setw(25) << left << K[i].vardas << setw(25) << left << K[i].pavarde << setw(25) << left << fixed << setprecision(2) << K[i].gbalas << endl;
+        for (int i = 0; i < K.size(); i++)
+        {
+            bufferK << setw(25) << left << K[i].vardas << setw(25) << left << K[i].pavarde << setw(25) << left << fixed << setprecision(2) << K[i].gbalas << endl;
+        }
     }
-    // //2 strategija
-    // for (int i = 0; i < A.size(); i++)
-    // {
-    //     bufferK << setw(25) << left << A[i].vardas << setw(25) << left << A[i].pavarde << setw(25) << left << fixed << setprecision(2) << A[i].gbalas << endl;
-    // }
+    //2 strategija
+    if (skistr == 2)
+    {
+        for (int i = 0; i < A.size(); i++)
+        {
+            bufferK << setw(25) << left << A[i].vardas << setw(25) << left << A[i].pavarde << setw(25) << left << fixed << setprecision(2) << A[i].gbalas << endl;
+        }
+    }
     outK << bufferK.str();
     outK.close();
     bufferK.clear();

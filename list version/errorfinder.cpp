@@ -220,3 +220,25 @@ char fgeneravimopatikra()
         }
     }
 }
+
+int skirststratpat()
+{
+    int skistr;
+    cout << "Pasirinkite skirstymo strategiją. Įveskite '1', '2' arba '3': ";
+    while(true)
+    {
+    try{
+        if(!(cin >> skistr) || skistr > 3 || skistr < 1)
+        {
+            throw "Įvestas (ne)skaičius ne iš intervalo (1-3). Įveskite dar kartą: ";
+        }
+        return skistr;
+        break;
+    } catch (char const *error)
+    {
+        cerr << error << endl;
+        cin.clear();
+        cin.ignore(numeric_limits<streamsize>::max(), '\n');
+    }
+    }
+}

@@ -22,19 +22,19 @@ struct studentas
     double gbalas;
 };
 
-struct kietiakas
-{
-    string vardas;
-    string pavarde;
-    double gbalas;
-};
+// struct kietiakas
+// {
+//     string vardas;
+//     string pavarde;
+//     double gbalas;
+// };
 
-struct vargsiukas
-{
-    string vardas;
-    string pavarde;
-    double gbalas;
-};
+// struct vargsiukas
+// {
+//     string vardas;
+//     string pavarde;
+//     double gbalas;
+// };
 
 extern int tlaikas;
 
@@ -47,5 +47,7 @@ bool rikiavimasgbalas(const studentas &a, const studentas &b);
 bool rikiavimasvardas(const studentas &a, const studentas &b);
 bool rikiavimaspavarde(const studentas &a, const studentas &b);
 void rikiavimas(vector<studentas> &A);
-void skirstymas(vector<studentas> &A, vector<kietiakas> &K, vector<vargsiukas> &V);
-void irasymasifailaK(vector<studentas> &A, vector<kietiakas> &K, vector<vargsiukas> &V, char budas);
+void skirstymas1(vector<studentas> &A, vector<studentas> &K, vector<studentas> &V);
+void skirstymas2(vector<studentas> &A, vector<studentas> &V);
+void skirstymas3(vector<studentas> &A, vector<studentas> &K, vector<studentas> &V);
+void irasymasifailaK(vector<studentas> &A, vector<studentas> &K, vector<studentas> &V, char budas, int skistr);
