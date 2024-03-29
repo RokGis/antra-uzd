@@ -22,20 +22,6 @@ struct studentas
     double gbalas;
 };
 
-// struct kietiakas
-// {
-//     string vardas;
-//     string pavarde;
-//     double gbalas;
-// };
-
-// struct vargsiukas
-// {
-//     string vardas;
-//     string pavarde;
-//     double gbalas;
-// };
-
 extern int tlaikas;
 
 void skaitymasisfailo(vector<studentas> &A, char budas, char ivedbudas);

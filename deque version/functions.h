@@ -22,20 +22,6 @@ struct studentas
     double gbalas;
 };
 
-struct kietiakas
-{
-    string vardas;
-    string pavarde;
-    double gbalas;
-};
-
-struct vargsiukas
-{
-    string vardas;
-    string pavarde;
-    double gbalas;
-};
-
 extern int tlaikas;
 
 void skaitymasisfailo(deque<studentas> &A, char budas, char ivedbudas);
@@ -47,5 +33,7 @@ bool rikiavimasgbalas(const studentas &a, const studentas &b);
 bool rikiavimasvardas(const studentas &a, const studentas &b);
 bool rikiavimaspavarde(const studentas &a, const studentas &b);
 void rikiavimas(deque<studentas> &A);
-void skirstymas(deque<studentas> &A, deque<kietiakas> &K, deque<vargsiukas> &V);
-void irasymasifailaK(deque<studentas> &A, deque<kietiakas> &K, deque<vargsiukas> &V, char budas);
+void skirstymas1(deque<studentas> &A, deque<studentas> &K, deque<studentas> &V);
+void skirstymas2(deque<studentas> &A, deque<studentas> &V);
+void skirstymas3(deque<studentas> &A, deque<studentas> &K, deque<studentas> &V);
+void irasymasifailaK(deque<studentas> &A, deque<studentas> &K, deque<studentas> &V, char budas, int skistr);

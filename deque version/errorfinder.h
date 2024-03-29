@@ -12,4 +12,5 @@ int erezpatikra();
 char rikbudpatikra();
 int pazymiopatikra();
 char skirstymopatikra();
+int skirststratpat();
 char fgeneravimopatikra();
