@@ -6,8 +6,8 @@
       "type": "lldb",
       "request": "launch",
       "args": [],
-      "cwd": "/Users/rokas/Documents/2 semestras/objektinis programavimas/pirma uzduotis/objektinis-programavimas",
-      "program": "/Users/rokas/Documents/2 semestras/objektinis programavimas/pirma uzduotis/objektinis-programavimas/build/Debug/outDebug"
+      "cwd": ".",
+      "program": "build/Debug/outDebug"
     }
   ]
 }
