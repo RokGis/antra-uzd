@@ -6,7 +6,7 @@ int tlaikas = 0;
 void skaitymasisfailo(vector<studentas> &A, char budas, char ivedbudas)
 {
     int sum = 0;
-    ifstream in("studentai1000.txt");
+    ifstream in("studentai100000.txt");
     
     try {
         if (!in.is_open()) {
@@ -238,6 +238,7 @@ void skirstymas1(vector<studentas> &A, vector<studentas> &K, vector<studentas> &
 //2 strategija
 void skirstymas2(vector<studentas> &A, vector<studentas> &V)
 {
+    sort(A.begin(), A.end(), rikiavimasgbalas);
     auto start = high_resolution_clock::now();
     for (int i = A.size()-1; i >= 0; i--)
     {

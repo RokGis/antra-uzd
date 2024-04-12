@@ -237,6 +237,7 @@ void skirstymas1(deque<studentas> &A, deque<studentas> &K, deque<studentas> &V)
 //2 strategija
 void skirstymas2(deque<studentas> &A, deque<studentas> &V)
 {
+    sort(A.begin(), A.end(), rikiavimasgbalas);
     auto start = high_resolution_clock::now();
     for (int i = A.size()-1; i >= 0; i--)
     {

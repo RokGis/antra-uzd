@@ -238,6 +238,7 @@ void skirstymas1(list<studentas> &A, list<studentas> &K, list<studentas> &V)
 //2 strategija
 void skirstymas2(list<studentas> &A, list<studentas> &V)
 {
+    A.sort(rikiavimasgbalas);
     auto start = high_resolution_clock::now();
     for (auto studentas = --A.end(); studentas != A.begin(); --studentas)
     {
