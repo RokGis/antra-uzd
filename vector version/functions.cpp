@@ -34,9 +34,12 @@ void skaitymasisfailo(vector<studentas> &A, char budas, char ivedbudas)
                 sum += pazymys;
             }
             new_studentas.setNdrez(pazymysVector);
-            new_studentas.setErez(pazymysVector.back()); // Set the exam result directly from the last grade
-            skaiciavimas(new_studentas, sum - new_studentas.getErez(), budas); // Calculate the average excluding the exam result
-
+            new_studentas.setErez(new_studentas.getNdrez().back()); // paskutinis elementas priskiriamas kaip egzamino rezultatas
+            vector<int> ndrezCopy = new_studentas.getNdrez();
+            ndrezCopy.pop_back();                  // paskutinis elementas istrinamas is namu darbu pazymiu vektoriaus
+            new_studentas.setNdrez(ndrezCopy);
+            sum -= new_studentas.getErez(); //atimame egzamino reiksme, nes ji buvo prideta prie sumos
+            skaiciavimas(new_studentas, sum, budas);
         }
         if (ivedbudas == 2)
         {
