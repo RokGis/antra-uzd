@@ -10,6 +10,8 @@ int main()
 
     srand(time(nullptr));
 
+    string vardas;
+    string pavarde;
     failugeneravimas();
     int ivedbudas;
     ivedbudas = ivedbudpatikra();
@@ -55,10 +57,12 @@ int main()
             {
                 studentas new_studentas;
                 cout << "Iveskite studento varda ir pavarde arba „11“, jeigu norite uzbaigti studentu vedima: ";
-                cin >> new_studentas.vardas;
-                if (new_studentas.vardas == "11"){
+                cin >> vardas;
+                if (vardas == "11"){
                     break;}
-                cin >> new_studentas.pavarde;
+                new_studentas.setVardas(vardas);
+                cin >> pavarde;
+                new_studentas.setPavarde(pavarde);
                 pazymiuived(new_studentas, budas, ivedbudas);
                 A.push_back(new_studentas); // pridedamas elementas i gala 
             }
@@ -89,8 +93,8 @@ int main()
             for (int i = 0; i < m; i++)
             {
                 studentas new_studentas;
-                new_studentas.vardas = vardai[rand() % vardai.size()];
-                new_studentas.pavarde = pavardes[rand() % pavardes.size()];
+                new_studentas.setVardas(vardai[rand() % vardai.size()]);
+                new_studentas.setPavarde(pavardes[rand() % pavardes.size()]);
                 pazymiuived(new_studentas, budas, ivedbudas);
                 A[i] = new_studentas;
             }

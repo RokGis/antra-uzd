@@ -20,21 +20,25 @@ void skaitymasisfailo(vector<studentas> &A, char budas, char ivedbudas)
     while(getline(in, eil)){
         studentas new_studentas;
         sum = 0;
-        new_studentas.vardas = eil.substr(0, 25);
-        new_studentas.pavarde = eil.substr(25, 25);
+        new_studentas.setVardas(eil.substr(0, 25));
+        new_studentas.setPavarde(eil.substr(25, 25));
         if (ivedbudas == 1)
         {
             string pazymiai = eil.substr(50); // studento pazymiai saugomi kaip string tipo duomenys
             stringstream my_buffer(pazymiai);
             int pazymys;
+            vector<int> pazymysVector;
             while (my_buffer >> pazymys)
-            {
-                new_studentas.ndrez.push_back(pazymys); // prisikiriamas elSementas
+            {;
+                pazymysVector.push_back(pazymys); // prisikiriamas elSementas
                 sum += pazymys;
             }
-            new_studentas.erez = new_studentas.ndrez.back(); // paskutinis elementas priskiriamas kaip egzamino rezultatas
-            new_studentas.ndrez.pop_back();                  // paskutinis elementas istrinamas is namu darbu pazymiu vektoriaus
-            sum -= new_studentas.erez; //atimame egzamino reiksme, nes ji buvo prideta prie sumos
+            new_studentas.setNdrez(pazymysVector);
+            new_studentas.setErez(new_studentas.getNdrez().back()); // paskutinis elementas priskiriamas kaip egzamino rezultatas
+            vector<int> ndrezCopy = new_studentas.getNdrez();
+            ndrezCopy.pop_back();                  // paskutinis elementas istrinamas is namu darbu pazymiu vektoriaus
+            new_studentas.setNdrez(ndrezCopy);
+            sum -= new_studentas.getErez(); //atimame egzamino reiksme, nes ji buvo prideta prie sumos
             skaiciavimas(new_studentas, sum, budas);
         }
         if (ivedbudas == 2)
@@ -72,7 +76,7 @@ void irasymasifaila(vector<studentas> &A, char budas)
     buffer << "---------------------------------------------------------------------------------------------------" << endl;
     for (int i = 0; i < A.size(); i++)
     {
-        buffer << setw(25) << left << A[i].vardas << setw(25) << left << A[i].pavarde << setw(25) << left << fixed << setprecision(2) << A[i].gbalas << endl;
+        buffer << setw(25) << left << A[i].getVardas() << setw(25) << left << A[i].getPavarde() << setw(25) << left << fixed << setprecision(2) << A[i].getGbalas() << endl;
     }
     out << buffer.str(); 
     out.close();
@@ -99,7 +103,7 @@ void isvedimas(vector<studentas> &A, char budas)
         cout << "---------------------------------------------------------------------------------------------------" << endl;
         for (int i = 0; i < A.size(); i++)
         {
-            cout << setw(25) << left << A[i].vardas << setw(25) << left << A[i].pavarde << setw(25) << left << fixed << setprecision(2) << A[i].gbalas << endl;
+            cout << setw(25) << left << A[i].getVardas() << setw(25) << left << A[i].getPavarde() << setw(25) << left << fixed << setprecision(2) << A[i].getGbalas() << endl;
         }
     }
     else if (isvedbud == 'f')
@@ -111,6 +115,7 @@ void isvedimas(vector<studentas> &A, char budas)
 void pazymiuived(studentas &new_studentas, char budas, int ivedbudas)
 {
     int sum = 0;
+    vector<int> pazymysVector;
     int pazymys;
     if (ivedbudas == 1){
         cout << "Iveskite studento namu darbu rezultata arba „11“, jeigu norite uzbaigti rezultatu vedima: " << endl;}
@@ -132,18 +137,19 @@ void pazymiuived(studentas &new_studentas, char budas, int ivedbudas)
             if (pazymys == 11) {
                 break;}
         }
-        new_studentas.ndrez.push_back(pazymys); // pridedamas elementas i gala
+        pazymysVector.push_back(pazymys); // pridedamas elementas i gala
         sum += pazymys;
     }
     if (ivedbudas == 1)
     {
-        new_studentas.erez = erezpatikra();
+        new_studentas.setErez(erezpatikra());
     }
 
     if (ivedbudas == 2 || ivedbudas == 3)
     {
-        new_studentas.erez = rand() % 11;
+        new_studentas.setErez(rand() % 11);
     }
+    new_studentas.setNdrez(pazymysVector);
     skaiciavimas(new_studentas, sum, budas);
 }
 
@@ -151,29 +157,29 @@ void skaiciavimas(studentas &new_studentas, int sum, char budas)
 {
     auto start = high_resolution_clock::now(); 
     double vid, mediana;
-    if (new_studentas.ndrez.size() == 0)
+    if (new_studentas.getNdrez().size() == 0)
     {
         vid = 0;
         mediana = 0;
     }
     else 
     {
-        vid = sum / (new_studentas.ndrez.size() * 1.0);
+        vid = sum / (new_studentas.getNdrez().size() * 1.0);
             
-        sort(new_studentas.ndrez.begin(), new_studentas.ndrez.end());
-        if (new_studentas.ndrez.size() % 2 == 0) {
-            mediana = (new_studentas.ndrez[new_studentas.ndrez.size() / 2 - 1] + new_studentas.ndrez[new_studentas.ndrez.size() / 2]) / 2.0;}
+        sort(new_studentas.getNdrez().begin(), new_studentas.getNdrez().end());
+        if (new_studentas.getNdrez().size() % 2 == 0) {
+            mediana = (new_studentas.getNdrez()[new_studentas.getNdrez().size() / 2 - 1] + new_studentas.getNdrez()[new_studentas.getNdrez().size() / 2]) / 2.0;}
         else {
-                mediana = new_studentas.ndrez[new_studentas.ndrez.size() / 2];}
+                mediana = new_studentas.getNdrez()[new_studentas.getNdrez().size() / 2];}
     }
 
     if (budas == 'v')
     {
-        new_studentas.gbalas = 0.4 * vid + 0.6 * new_studentas.erez;
+        new_studentas.setGbalas(0.4 * vid + 0.6 * new_studentas.getErez());
     }
     else if (budas == 'm')
     {
-        new_studentas.gbalas = 0.4 * mediana + 0.6 * new_studentas.erez;
+        new_studentas.setGbalas(0.4 * mediana + 0.6 * new_studentas.getErez());
     }
     sum = 0;
     auto stop = high_resolution_clock::now(); // Stop measuring time
@@ -183,17 +189,17 @@ void skaiciavimas(studentas &new_studentas, int sum, char budas)
 
 bool rikiavimasgbalas(const studentas &a, const studentas &b)
 {
-    return a.gbalas > b.gbalas;
+    return a.getGbalas() > b.getGbalas();
 }
 
 bool rikiavimasvardas(const studentas &a, const studentas &b)
 {
-    return a.vardas < b.vardas;
+    return a.getVardas() < b.getVardas();
 }
 
 bool rikiavimaspavarde(const studentas &a, const studentas &b)
 {
-    return a.pavarde < b.pavarde;
+    return a.getPavarde() < b.getPavarde();
 }
 
 void rikiavimas(vector<studentas> &A)
@@ -219,11 +225,11 @@ void skirstymas1(vector<studentas> &A, vector<studentas> &K, vector<studentas> &
     auto start = high_resolution_clock::now();
     for (int i = 0; i < A.size(); i++)
     {
-        if (A[i].gbalas >= 5.0)
+        if (A[i].getGbalas() >= 5.0)
         {
             K.push_back(A[i]);
         }
-        if (A[i].gbalas < 5.0)
+        if (A[i].getGbalas() < 5.0)
         {
             V.push_back(A[i]);
         }
@@ -242,7 +248,7 @@ void skirstymas2(vector<studentas> &A, vector<studentas> &V)
     auto start = high_resolution_clock::now();
     for (int i = A.size()-1; i >= 0; i--)
     {
-        if (A[i].gbalas < 5.0)
+        if (A[i].getGbalas() < 5.0)
         {
             V.push_back(A[i]);
             A.pop_back();
@@ -261,7 +267,7 @@ void skirstymas3(vector<studentas> &A, vector<studentas> &K, vector<studentas> &
     auto start = high_resolution_clock::now();
 
     auto partition_point = partition(A.begin(), A.end(), [](const studentas& s) {
-        return s.gbalas >= 5.0;
+        return s.getGbalas() >= 5.0;
     });
 
     transform(A.begin(), partition_point, back_inserter(K), [](const studentas& s) {
@@ -296,7 +302,7 @@ void irasymasifailaK(vector<studentas> &A, vector<studentas> &K, vector<studenta
     {
         for (int i = 0; i < K.size(); i++)
         {
-            bufferK << setw(25) << left << K[i].vardas << setw(25) << left << K[i].pavarde << setw(25) << left << fixed << setprecision(2) << K[i].gbalas << endl;
+            bufferK << setw(25) << left << K[i].getVardas() << setw(25) << left << K[i].getPavarde() << setw(25) << left << fixed << setprecision(2) << K[i].getGbalas() << endl;
         }
     }
     //2 strategija
@@ -304,7 +310,7 @@ void irasymasifailaK(vector<studentas> &A, vector<studentas> &K, vector<studenta
     {
         for (int i = 0; i < A.size(); i++)
         {
-            bufferK << setw(25) << left << A[i].vardas << setw(25) << left << A[i].pavarde << setw(25) << left << fixed << setprecision(2) << A[i].gbalas << endl;
+            bufferK << setw(25) << left << A[i].getVardas() << setw(25) << left << A[i].getPavarde() << setw(25) << left << fixed << setprecision(2) << A[i].getGbalas() << endl;
         }
     }
     outK << bufferK.str();
@@ -321,7 +327,7 @@ void irasymasifailaK(vector<studentas> &A, vector<studentas> &K, vector<studenta
     bufferV << "---------------------------------------------------------------------------------------------------" << endl;
     for (int i = 0; i < V.size(); i++)
     {
-        bufferV << setw(25) << left << V[i].vardas << setw(25) << left << V[i].pavarde << setw(25) << left << fixed << setprecision(2) << V[i].gbalas << endl;
+        bufferV << setw(25) << left << V[i].getVardas() << setw(25) << left << V[i].getPavarde() << setw(25) << left << fixed << setprecision(2) << V[i].getGbalas() << endl;
     }
     outV << bufferV.str();
     outV.close();
