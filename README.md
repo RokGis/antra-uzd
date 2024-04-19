@@ -59,4 +59,12 @@
 
 Pastaba: Įsitikinkite, kad jūsų sistemoje įdiegta GNU Make paslauga, kad galėtumėte naudoti Makefile komandas. Taip pat atkreipkite dėmesį, kad Makefile, `.cpp` bei `.h` failai būtų viename (projekte) aplanke.
 
+### Testavimas:
+#### Struct vs. Class:
+![image](https://github.com/RokGis/antra-uzd/assets/147180109/4d30d5a2-790b-495f-aa78-0e766a206d1c)
+
+#### Flags:
+![image](https://github.com/RokGis/antra-uzd/assets/147180109/fa123dfd-6f52-4e53-9e6c-4134991d0245)
+
+
   
