@@ -12,30 +12,30 @@ using namespace std;
 #include "zmogus.h"
 #include <vector>
 
-class Studentas : public Zmogus {
+class studentas : public zmogus {
 private:
     std::vector<int> ndrez;
     int erez;
     double gbalas;
 
 public:
-    Studentas(const std::string& v, const std::string& p, const std::vector<int>& nd, int e, double g)
-        : Zmogus(v, p), ndrez(nd), erez(e), gbalas(g) {}
+    studentas(const std::string& v, const std::string& p, const std::vector<int>& nd, int e, double g)
+        : zmogus(v, p), ndrez(nd), erez(e), gbalas(g) {}
 
     // Destructor
-    virtual ~Studentas();
+    virtual ~studentas();
 
     // Copy constructor
-    Studentas(const Studentas& other);
+    studentas(const studentas& kit);
 
     // Copy assignment operator
-    Studentas& operator=(const Studentas& other);
+    studentas& operator=(const studentas& kit);
 
     // Move constructor
-    Studentas(Studentas&& other) noexcept;
+    studentas(studentas&& kit) noexcept;
 
     // Move assignment operator
-    Studentas& operator=(Studentas&& other) noexcept;
+    studentas& operator=(studentas&& kit) noexcept;
 
     // Functions for getting ndrez, erez, and gbalas
     std::vector<int> getNdrez() const { return ndrez; }
