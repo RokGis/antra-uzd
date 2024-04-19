@@ -1,7 +1,11 @@
+#ifndef STUDENTAS_H
+#define STUDENTAS_H
+
 #include <iostream>
 #include <iomanip>
 #include <vector>
 #include <string>
+#include <algorithm>
 
 using namespace std;
 
@@ -29,4 +33,11 @@ private:
       void setNdrez(const vector<int>& nd) { ndrez = nd; }
       void setErez(int e) { erez = e; }
       void setGbalas(double g) { gbalas = g; }                     // set'eriai
+
+      void sortNdrez() {
+    sort(ndrez.begin(), ndrez.end());
+}
+      ~studentas() { ndrez.clear(); }
+      
 };
+#endif // STUDENTAS_H

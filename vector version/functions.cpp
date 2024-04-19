@@ -1,62 +1,62 @@
 #include "functions.h"
 #include "errorfinder.h"
+#include "studentas.h"
 
 int tlaikas = 0;
 
-void skaitymasisfailo(vector<studentas> &A, char budas, char ivedbudas)
-{
-    int sum = 0;
-    ifstream in("studentai10000.txt");
+void skaitymasisfailo(vector<studentas> &A, char budas, char ivedbudas) {
+    int tlaikas = 0;
+    auto start = high_resolution_clock::now();
     
     try {
+        ifstream in("studentai10000000.txt");
         if (!in.is_open()) {
             throw runtime_error("Nepavyko atidaryti failo.");
         }
 
-    string eil;
-    auto start = high_resolution_clock::now();
-    getline(in, eil);
+        string eil;
+        getline(in, eil); // Skip the header line
 
-    while(getline(in, eil)){
-        studentas new_studentas;
-        sum = 0;
-        new_studentas.setVardas(eil.substr(0, 25));
-        new_studentas.setPavarde(eil.substr(25, 25));
-        if (ivedbudas == 1)
-        {
-            string pazymiai = eil.substr(50); // studento pazymiai saugomi kaip string tipo duomenys
-            stringstream my_buffer(pazymiai);
-            int pazymys;
-            vector<int> pazymysVector;
-            while (my_buffer >> pazymys)
-            {;
+        while (getline(in, eil)) {
+            studentas new_studentas;
+            int sum = 0;
+            int egzas = 0;
+            string var;
+            string pav;
+            istringstream my_buffer(eil);
+
+            if (ivedbudas == 1) {
+
+                my_buffer >> var >> pav;
+                new_studentas.setVardas(var);
+                new_studentas.setPavarde(pav);
+                int pazymys;
+                vector<int> pazymysVector;
+                while (my_buffer >> pazymys)
+                {
                 pazymysVector.push_back(pazymys); // prisikiriamas elSementas
                 sum += pazymys;
+                }
+
+                new_studentas.setErez(pazymysVector.back());
+                pazymysVector.pop_back();
+                new_studentas.setNdrez(pazymysVector);
+                skaiciavimas(new_studentas, sum, budas);
+                
+            } else if (ivedbudas == 2) {
+                pazymiuived(new_studentas, budas, ivedbudas);
             }
-            new_studentas.setNdrez(pazymysVector);
-            new_studentas.setErez(new_studentas.getNdrez().back()); // paskutinis elementas priskiriamas kaip egzamino rezultatas
-            vector<int> ndrezCopy = new_studentas.getNdrez();
-            ndrezCopy.pop_back();                  // paskutinis elementas istrinamas is namu darbu pazymiu vektoriaus
-            new_studentas.setNdrez(ndrezCopy);
-            sum -= new_studentas.getErez(); //atimame egzamino reiksme, nes ji buvo prideta prie sumos
-            skaiciavimas(new_studentas, sum, budas);
-        }
-        if (ivedbudas == 2)
-        {
-            pazymiuived(new_studentas, budas, ivedbudas);
+
+            A.push_back(new_studentas);
         }
 
-        A.push_back(new_studentas); //studentas idedamas i vektoriu
-    }
-    in.close();
-    auto stop = high_resolution_clock::now();
-    auto duration = duration_cast<milliseconds>(stop - start);
+        in.close();
+        auto stop = high_resolution_clock::now();
+        auto duration = duration_cast<milliseconds>(stop - start);
 
-    cout << "Reading from file took: " << duration.count() << " milliseconds" << endl;
-    tlaikas += duration.count();
-    }
-    catch (const runtime_error &e)
-    {
+        cout << "Reading from file took: " << duration.count() << " milliseconds" << endl;
+        tlaikas += duration.count();
+    } catch (const runtime_error &e) {
         cerr << e.what() << endl;
         exit(EXIT_FAILURE);
     }
@@ -157,31 +157,34 @@ void skaiciavimas(studentas &new_studentas, int sum, char budas)
 {
     auto start = high_resolution_clock::now(); 
     double vid, mediana;
-    if (new_studentas.getNdrez().size() == 0)
+    double galrez = 0;
+    int tempsize = new_studentas.getNdrez().size();
+    if (tempsize == 0)
     {
         vid = 0;
         mediana = 0;
     }
     else 
     {
-        vid = sum / (new_studentas.getNdrez().size() * 1.0);
+        vid = sum / ((double)tempsize);
             
-        sort(new_studentas.getNdrez().begin(), new_studentas.getNdrez().end());
-        if (new_studentas.getNdrez().size() % 2 == 0) {
-            mediana = (new_studentas.getNdrez()[new_studentas.getNdrez().size() / 2 - 1] + new_studentas.getNdrez()[new_studentas.getNdrez().size() / 2]) / 2.0;}
+        new_studentas.sortNdrez();
+        if (tempsize % 2 == 0) {
+            mediana = (new_studentas.getNdrez().at(tempsize / 2 - 1) + new_studentas.getNdrez().at(tempsize / 2)) / 2.0;}
         else {
-                mediana = new_studentas.getNdrez()[new_studentas.getNdrez().size() / 2];}
+            mediana = new_studentas.getNdrez().at(tempsize / 2);}
     }
 
     if (budas == 'v')
     {
-        new_studentas.setGbalas(0.4 * vid + 0.6 * new_studentas.getErez());
+        galrez = 0.4 * vid + 0.6 * new_studentas.getErez();
     }
     else if (budas == 'm')
     {
-        new_studentas.setGbalas(0.4 * mediana + 0.6 * new_studentas.getErez());
+        galrez = 0.4 * mediana + 0.6 * new_studentas.getErez();
     }
     sum = 0;
+    new_studentas.setGbalas(galrez);
     auto stop = high_resolution_clock::now(); // Stop measuring time
     auto duration = duration_cast<milliseconds>(stop - start); 
     tlaikas += duration.count();

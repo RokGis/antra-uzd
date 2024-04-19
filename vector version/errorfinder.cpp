@@ -1,4 +1,5 @@
 #include "errorfinder.h"
+#include "studentas.h"
 
 int ivedbudpatikra()
 {

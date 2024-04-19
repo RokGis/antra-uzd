@@ -1,6 +1,7 @@
 #include "filegenerator.h"
 #include "errorfinder.h"
 #include "functions.h"
+#include "studentas.h"
 
 int failugeneravimas ()
 {

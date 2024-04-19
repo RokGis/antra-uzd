@@ -1,6 +1,7 @@
 #include "functions.h"
 #include "errorfinder.h"
 #include"filegenerator.h"
+#include "studentas.h"
 
 int main()
 {

@@ -1,3 +1,6 @@
+#ifndef FUNCTIONS_H
+#define FUNCTIONS_H
+
 #include <iostream>
 #include <iomanip>
 #include <limits>
@@ -38,3 +41,5 @@ void skirstymas1(vector<studentas> &A, vector<studentas> &K, vector<studentas> &
 void skirstymas2(vector<studentas> &A, vector<studentas> &V);
 void skirstymas3(vector<studentas> &A, vector<studentas> &K, vector<studentas> &V);
 void irasymasifailaK(vector<studentas> &A, vector<studentas> &K, vector<studentas> &V, char budas, int skistr);
+
+#endif // FUNCTIONS_H
