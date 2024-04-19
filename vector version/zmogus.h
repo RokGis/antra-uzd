@@ -3,16 +3,16 @@
 
 #include <string>
 
-class Zmogus {
+class zmogus {
 protected:
     std::string vardas;
     std::string pavarde;
 
 public:
-    Zmogus(const std::string& v, const std::string& p)
+    zmogus(const std::string& v, const std::string& p)
         : vardas(v), pavarde(p) {}
 
-    virtual ~Zmogus() {}
+    virtual ~zmogus() {}
 
     virtual std::string getVardas() const { return vardas; }
     virtual std::string getPavarde() const { return pavarde; }
