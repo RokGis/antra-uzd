@@ -45,9 +45,6 @@ private:
       void setGbalas(double g) { gbalas = g; }                     // set'eriai
 
       void sortNdrez() { sort(ndrez.begin(), ndrez.end()); }
-
-      ~studentas() { ndrez.clear(); }
-      
 };
 
 #endif // STUDENTAS_H
