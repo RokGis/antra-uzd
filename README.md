@@ -64,7 +64,8 @@ Pastaba: Įsitikinkite, kad jūsų sistemoje įdiegta GNU Make paslauga, kad gal
 ![image](https://github.com/RokGis/antra-uzd/assets/147180109/4d30d5a2-790b-495f-aa78-0e766a206d1c)
 
 #### Flags:
-![image](https://github.com/RokGis/antra-uzd/assets/147180109/fa123dfd-6f52-4e53-9e6c-4134991d0245)
+![image](https://github.com/RokGis/antra-uzd/assets/147180109/3bf82943-a9c9-4af0-b437-51cad789f0ef)
+
 
 
   
