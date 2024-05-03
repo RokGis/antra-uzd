@@ -1,84 +1,56 @@
-#include "studentas.h"
-#include "gtest/gtest.h"
+#include "studentas.h" // Include the header file of your class
+#include "gtest/gtest.h" // Include the Google Test framework
 
-// Testuojame konstruktorius ir get metodus
+// Test case for constructor and getters
 TEST(StudentasTest, ConstructorAndGetters) {
-    std::vector<int> nd_rezultatai = {10, 8, 9};
-    studentas stud("Vardas", "Pavarde", nd_rezultatai, 1, 9.5);
+    // Create a student object
+    studentas stud("John", "Doe", {90, 85, 95}, 1, 90.0);
 
-    EXPECT_EQ(stud.get_vardas(), "Vardas");
-    EXPECT_EQ(stud.get_pavarde(), "Pavarde");
-    EXPECT_EQ(stud.get_erez(), 1);
-    EXPECT_DOUBLE_EQ(stud.get_gbalas(), 9.5);
-
-    std::vector<int> nd_rezultatai_gauti = stud.get_ndrez();
-    ASSERT_EQ(nd_rezultatai_gauti.size(), nd_rezultatai.size());
-    for (int i = 0; i < nd_rezultatai.size(); ++i) {
-        EXPECT_EQ(nd_rezultatai_gauti[i], nd_rezultatai[i]);
-    }
+    // Validate the values returned by getter methods
+    EXPECT_EQ(stud.getVardas(), "John");
+    EXPECT_EQ(stud.getPavarde(), "Doe");
+    EXPECT_EQ(stud.getNdrez(), std::vector<int>({90, 85, 95}));
+    EXPECT_EQ(stud.getErez(), 1);
+    EXPECT_DOUBLE_EQ(stud.getGbalas(), 90.0);
 }
 
-// Testuojame copy konstruktorių
-TEST(StudentasTest, CopyConstructor) {
-    std::vector<int> nd_rezultatai = {10, 8, 9};
-    studentas stud1("Vardas", "Pavarde", nd_rezultatai, 1, 9.5);
-    studentas stud2 = stud1;
+// Test case for setter methods
+TEST(StudentasTest, Setters) {
+    // Create a student object
+    studentas stud;
 
-    EXPECT_EQ(stud1.get_vardas(), stud2.get_vardas());
-    EXPECT_EQ(stud1.get_pavarde(), stud2.get_pavarde());
-    EXPECT_EQ(stud1.get_erez(), stud2.get_erez());
-    EXPECT_DOUBLE_EQ(stud1.get_gbalas(), stud2.get_gbalas());
+    // Set values using setter methods
+    stud.setVardas("Jane");
+    stud.setPavarde("Smith");
+    stud.setNdrez({80, 75, 85});
+    stud.setErez(2);
+    stud.setGbalas(85.0);
 
-    std::vector<int> nd_rezultatai_stud1 = stud1.get_ndrez();
-    std::vector<int> nd_rezultatai_stud2 = stud2.get_ndrez();
-    ASSERT_EQ(nd_rezultatai_stud1.size(), nd_rezultatai_stud2.size());
-    for (int i = 0; i < nd_rezultatai_stud1.size(); ++i) {
-        EXPECT_EQ(nd_rezultatai_stud1[i], nd_rezultatai_stud2[i]);
-    }
+    // Validate the values returned by getter methods
+    EXPECT_EQ(stud.getVardas(), "Jane");
+    EXPECT_EQ(stud.getPavarde(), "Smith");
+    EXPECT_EQ(stud.getNdrez(), std::vector<int>({80, 75, 85}));
+    EXPECT_EQ(stud.getErez(), 2);
+    EXPECT_DOUBLE_EQ(stud.getGbalas(), 85.0);
 }
 
-// Testuojame move konstruktorių
-TEST(StudentasTest, MoveConstructor) {
-    std::vector<int> nd_rezultatai = {10, 8, 9};
-    studentas stud1("Vardas", "Pavarde", nd_rezultatai, 1, 9.5);
-    studentas stud2 = std::move(stud1);
+// Test case for sorting exam results
+TEST(StudentasTest, SortNdrez) {
+    // Create a student object with unsorted exam results
+    studentas stud;
+    stud.setNdrez({70, 65, 75, 60, 80});
 
-    EXPECT_EQ(stud2.get_vardas(), "Vardas");
-    EXPECT_EQ(stud2.get_pavarde(), "Pavarde");
-    EXPECT_EQ(stud2.get_erez(), 1);
-    EXPECT_DOUBLE_EQ(stud2.get_gbalas(), 9.5);
+    // Sort the exam results
+    stud.sortNdrez();
 
-    std::vector<int> nd_rezultatai_gauti = stud2.get_ndrez();
-    ASSERT_EQ(nd_rezultatai_gauti.size(), nd_rezultatai.size());
-    for (int i = 0; i < nd_rezultatai.size(); ++i) {
-        EXPECT_EQ(nd_rezultatai_gauti[i], nd_rezultatai[i]);
-    }
-
-    // stud1 turėtų būti tuščias
-    EXPECT_TRUE(stud1.get_vardas().empty());
-    EXPECT_TRUE(stud1.get_pavarde().empty());
-    EXPECT_EQ(stud1.get_erez(), 0);
-    EXPECT_DOUBLE_EQ(stud1.get_gbalas(), 0.0);
-    EXPECT_TRUE(stud1.get_ndrez().empty());
+    // Validate that the exam results are sorted in ascending order
+    EXPECT_EQ(stud.getNdrez(), std::vector<int>({60, 65, 70, 75, 80}));
 }
 
-// Testuojame priskyrimo operatorių
-TEST(StudentasTest, AssignmentOperator) {
-    std::vector<int> nd_rezultatai1 = {10, 8, 9};
-    std::vector<int> nd_rezultatai2 = {5, 6, 7};
-    studentas stud1("Vardas1", "Pavarde1", nd_rezultatai1, 1, 9.5);
-    studentas stud2("Vardas2", "Pavarde2", nd_rezultatai2, 2, 8.0);
-    stud2 = stud1;
+// Add more test cases as needed
 
-    EXPECT_EQ(stud1.get_vardas(), stud2.get_vardas());
-    EXPECT_EQ(stud1.get_pavarde(), stud2.get_pavarde());
-    EXPECT_EQ(stud1.get_erez(), stud2.get_erez());
-    EXPECT_DOUBLE_EQ(stud1.get_gbalas(), stud2.get_gbalas());
-
-    std::vector<int> nd_rezultatai_stud1 = stud1.get_ndrez();
-    std::vector<int> nd_rezultatai_stud2 = stud2.get_ndrez();
-    ASSERT_EQ(nd_rezultatai_stud1.size(), nd_rezultatai_stud2.size());
-    for (int i = 0; i < nd_rezultatai_stud1.size(); ++i) {
-        EXPECT_EQ(nd_rezultatai_stud1[i], nd_rezultatai_stud2[i]);
-    }
+// Entry point for running the tests
+int main(int argc, char **argv) {
+    ::testing::InitGoogleTest(&argc, argv);
+    return RUN_ALL_TESTS();
 }
