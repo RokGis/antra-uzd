@@ -28,16 +28,28 @@ studentas& studentas::operator=(const studentas& kit) {
 
 // move konstruktorius
 studentas::studentas(studentas&& kit) noexcept
-    : vardas(std::move(kit.vardas)), pavarde(std::move(kit.pavarde)), ndrez(std::move(kit.ndrez)), erez(kit.erez), gbalas(kit.gbalas) {}
+    : vardas(move(kit.vardas)), pavarde(move(kit.pavarde)), ndrez(move(kit.ndrez)), erez(kit.erez), gbalas(kit.gbalas)
+    {
+        kit.vardas.clear();
+        kit.pavarde.clear();
+        kit.ndrez.clear();
+        kit.erez = 0;
+        kit.gbalas = 0.0;
+    }
 
 // priskyrimo operatorius
 studentas& studentas::operator=(studentas&& kit) noexcept {
     if (this != &kit) {
-        vardas = std::move(kit.vardas);
-        pavarde = std::move(kit.pavarde);
-        ndrez = std::move(kit.ndrez);
+        vardas = move(kit.vardas);
+        pavarde = move(kit.pavarde);
+        ndrez = move(kit.ndrez);
         erez = kit.erez;
         gbalas = kit.gbalas;
+        kit.vardas.clear();
+        kit.pavarde.clear();
+        kit.ndrez.clear();
+        kit.erez = 0;
+        kit.gbalas = 0.0;
     }
     return *this;
 }

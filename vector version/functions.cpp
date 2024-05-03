@@ -9,7 +9,7 @@ void skaitymasisfailo(vector<studentas> &A, char budas, char ivedbudas) {
     auto start = high_resolution_clock::now();
     
     try {
-        ifstream in("studentai10000000.txt");
+        ifstream in("studentai10000.txt");
         if (!in.is_open()) {
             throw runtime_error("Nepavyko atidaryti failo.");
         }
