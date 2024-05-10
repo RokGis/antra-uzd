@@ -45,6 +45,33 @@ private:
       void setGbalas(double g) { gbalas = g; }                     // set'eriai
 
       void sortNdrez() { sort(ndrez.begin(), ndrez.end()); }
-};
+
+      // Overloaded << operator
+      friend ostream& operator<<(ostream& out, const studentas &kit) {
+          out << setw(25) << left << kit.vardas << setw(25) << left << kit.pavarde << setw(25) << left << fixed << setprecision(2) << kit.gbalas << endl;
+          return out;
+      }
+
+      // Overloaded >> operator
+      friend istream& operator>>(istream& in, studentas &kit) {
+      cout << "Enter student's name: ";
+      in >> kit.vardas;
+      cout << "Enter student's surname: ";
+      in >> kit.pavarde;
+
+      // Read and store student's homework grades
+      cout << "Enter student's homework grades (enter '11' to finish): ";
+      int grade;
+      while (in >> grade && grade != 11) {
+          kit.ndrez.push_back(grade);
+      }
+
+      // Read and store student's exam grade
+      cout << "Enter student's exam grade: ";
+      in >> kit.erez;
+
+      return in;
+  }
+      };
 
 #endif // STUDENTAS_H

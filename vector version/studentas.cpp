@@ -1,5 +1,8 @@
 #include "studentas.h"
+#include "functions.h"
 #include <utility>
+
+using namespace std;
 
 studentas::studentas() : erez(0), gbalas(0.0) {}
 
@@ -8,7 +11,8 @@ studentas::studentas(const string& v, const string& p, const vector<int>& nd, in
 
 // destruktorius
 studentas::~studentas() {
-ndrez.clear();}
+    ndrez.clear();
+}
 
 // copy konstruktorius
 studentas::studentas(const studentas& kit) 
