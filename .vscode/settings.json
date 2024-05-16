@@ -56,7 +56,14 @@
     "vector": "cpp",
     "algorithm": "cpp",
     "list": "cpp",
-    "deque": "cpp"
+    "deque": "cpp",
+    "__tree": "cpp",
+    "any": "cpp",
+    "condition_variable": "cpp",
+    "execution": "cpp",
+    "map": "cpp",
+    "set": "cpp",
+    "span": "cpp"
   },
   "C_Cpp_Runner.msvcBatchPath": "",
   "C_Cpp_Runner.cCompilerPath": "clang",

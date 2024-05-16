@@ -28,9 +28,6 @@ int main()
     //     char ski;
     //     int skistr;
 
-    //     vector<studentas> A; //sudaromas vektorius
-    //     vector<studentas> K; 
-    //     vector<studentas> V; 
 
     //     if ((ivedbudas == 1 || ivedbudas == 2) && duomskait == 'f')
     //     {
@@ -117,7 +114,16 @@ int main()
     // }
     // else {return 0;}
     // return 0;
-    studentas A;
-    cin >> A;
-    cout << A;
+            vector<studentas> A; //sudaromas vektorius
+            vector<studentas> K; 
+            vector<studentas> V;
+            char budas = 'v';
+            studentas D;
+            cin >> D;
+            A.push_back(D); // save studentas data in vector A
+
+            for (int i = 0; i < A.size(); i++)
+            {
+                cout << setw(25) << left << A[i].getVardas() << setw(25) << left << A[i].getPavarde() << setw(25) << left << fixed << setprecision(2) << A[i].getGbalas() << endl;
+            }
 }
