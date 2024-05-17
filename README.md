@@ -59,4 +59,24 @@
 
 Pastaba: Įsitikinkite, kad jūsų sistemoje įdiegta GNU Make paslauga, kad galėtumėte naudoti Makefile komandas. Taip pat atkreipkite dėmesį, kad Makefile, `.cpp` bei `.h` failai būtų viename (projekte) aplanke.
 
-  
+![image](https://github.com/RokGis/antra-uzd/assets/147180109/f07d41b6-ba3d-48e7-924b-5c2bf3519270)
+
+![att -JquttUXDyGpHpel21yB5OPPZXtgGpfVgU0DJ4P36d0](https://github.com/RokGis/antra-uzd/assets/147180109/20d710f2-1e66-4bf0-8293-3bc21d2095b7)
+
+# Duomenų Įvedimas ir Išvedimas
+
+## Įvestis
+
+Klasėje `studentas` naudojami perdengti įvesties operatoriai, leidžiantys įvesti duomenis įvairiais būdais:
+
+1. **Rankiniu būdu**: Vartotojas gali įvesti studento duomenis rankiniu būdu, naudojant standartinį įvesties srautą (`std::istream`).
+2. **Automatiniu būdu**: Automatizuotą įvestį galima atlikti per kodą, perduodant duomenis tiesiogiai į konstruktorių arba naudojant set'erio metodus.
+3. **Iš failo**: Įvesties duomenys gali būti nuskaityti iš failo, skaitant failo turinį į `std::ifstream` ir naudojant tą patį perdengtą operatorių `>>`.
+
+## Išvestis
+
+Duomenys gali būti išvedami į skirtingus tikslus:
+
+1. **Į ekraną**: Naudojant standartinį išvesties srautą (`std::ostream`), galima išvesti studento duomenis į konsolę.
+2. **Į failą**: Naudojant `std::ofstream`, duomenys gali būti išvesti į failą, taikant tą patį perdengtą operatorių `<<`.
+
