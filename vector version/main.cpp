@@ -34,7 +34,7 @@ void testCopyAssignment() {
 
 void testMoveAssignment() {
     studentas original("Kazys", "Grinius", {5, 6, 7}, 8, 5);
-    studentas moved("Antanas", "Smetona", {5, 6, 7}, 8, 3);
+    studentas moved("Antanas", "Smetona", {5, 6, 7}, 8, 5);
     
     moved = std::move(original);
     
