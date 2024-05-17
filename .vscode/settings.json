@@ -63,7 +63,8 @@
     "execution": "cpp",
     "map": "cpp",
     "set": "cpp",
-    "span": "cpp"
+    "span": "cpp",
+    "utility": "cpp"
   },
   "C_Cpp_Runner.msvcBatchPath": "",
   "C_Cpp_Runner.cCompilerPath": "clang",

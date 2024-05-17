@@ -6,11 +6,6 @@
 #include <vector>
 #include <string>
 #include <algorithm>
-#include <fstream>
-#include <chrono>
-#include <stdexcept> // Add this line
-#include <sstream> // Add this line
-#include "errorfinder.h"
 
 using namespace std;
 
@@ -23,44 +18,63 @@ private:
   int erez;
   double gbalas;
   // interfeisas
-public:
+  public:
+    string line;
     studentas(); // default konstruktorius
-    studentas(const string& v, const string& p, const vector<int>& nd, int e, double g);
+    studentas(const string &v, const string &p, const vector<int> &nd, int e, double g);
 
     ~studentas(); // destruktorius
 
-    studentas(const studentas& kit); // copy konstruktorius
+    studentas(const studentas &kit); // copy konstruktorius
 
-    studentas& operator=(const studentas& kit); // priskyrimo operatorius
+    studentas &operator=(const studentas &kit); // priskyrimo operatorius
 
-    studentas(studentas&& kit) noexcept; // move konstruktorius
+    studentas(studentas &&kit) noexcept; // move konstruktorius
 
-    studentas& operator=(studentas&& kit) noexcept;
+    studentas &operator=(studentas &&kit) noexcept;
 
-    string getVardas() const { return vardas; }                   // get'eriai
-    string getPavarde() const { return pavarde; }                 // get'eriai
+friend std::istream &operator>>(std::istream &in, studentas &kit){
+  kit.ndrez.clear();
+  int sum = 0;
+  int egzas = 0;
+  istringstream my_buffer(kit.line);
+
+  my_buffer >> kit.vardas >> kit.pavarde;
+  int pazymys;
+  while (my_buffer >> pazymys)
+  {
+    kit.ndrez.push_back(pazymys); // prisikiriamas elSementas
+    sum += pazymys;
+                }
+
+                kit.erez = kit.ndrez.back();
+                kit.ndrez.pop_back();
+                sum -= kit.erez;
+                kit.gbalas = sum;
+                return in;
+}
+
+    friend std::ostream &operator<<(std::ostream &out, const studentas &kit)
+   {
+        out << setw(21) << left << kit.vardas << setw(21) << left << kit.pavarde << setprecision(3) << left << kit.gbalas << '\n';
+        return out;
+  }
+
+    string getVardas() const { return vardas; }   // get'eriai
+    string getPavarde() const { return pavarde; } // get'eriai
     vector<int> getNdrez() const { return ndrez; }
     int getErez() const { return erez; }
     double getGbalas() const { return gbalas; } // get'eriai
-    
-    void setVardas(const string& v) { vardas = v; }
-    void setPavarde(const string& p) { pavarde = p; }
-    void setNdrez(const vector<int>& nd) { ndrez = nd; }
+
+    void setVardas(const string &v) { vardas = v; }
+    void setPavarde(const string &p) { pavarde = p; }
+    void setNdrez(const vector<int> &nd) { ndrez = nd; }
     void setErez(int e) { erez = e; }
-    void setGbalas(double g) { gbalas = g; }                     // set'eriai
+    void setGbalas(double g) { gbalas = g; } // set'eriai
 
     void sortNdrez() { sort(ndrez.begin(), ndrez.end()); }
-    void skaiciavimas(double sum, char budas);
-    void pazymiuived(int ivedbudas);
 
-    // Overloaded << operator
-    friend ostream& operator<<(ostream& out, const studentas& kit);
-    friend istream& operator>>(istream& in, studentas& kit);
-
+  
 };
 
-// Definition of operator>> outside the class
-
-ostream& operator<<(ostream& out, const studentas& kit);
-istream& operator>>(istream& in, studentas& kit);
 #endif // STUDENTAS_H
