@@ -3,8 +3,52 @@
 #include"filegenerator.h"
 #include "studentas.h"
 
+void testCopyConstruction() {
+    studentas original("Rokas", "Gilys", {5, 6, 7}, 8, 5);
+    studentas copy(original);
+    std::cout << "Copy construction test:" << std::endl;
+    std::cout << "Original: " << original << std::endl;
+    std::cout << "Copy: " << copy << std::endl;
+}
+
+void testMoveConstruction() {
+    studentas original("Liudas", "Vasaris", {5, 6, 7}, 8, 5);
+    
+    studentas moved(std::move(original));
+    
+    std::cout << "Move construction test:" << std::endl;
+    std::cout << "Original (after move): " << original << std::endl; // Should be in unspecified state
+    std::cout << "Moved: " << moved << std::endl;
+}
+
+void testCopyAssignment() {
+    studentas original("Jonas", "Kazlauskas", {5, 6, 7}, 8, 5);
+    studentas copy("Bronislovas", "Jonskis", {5, 6, 7}, 8, 4);
+    
+    copy = original;
+    
+    std::cout << "Copy assignment test:" << std::endl;
+    std::cout << "Original: " << original << std::endl;
+    std::cout << "Copy (after assignment): " << copy << std::endl;
+}
+
+void testMoveAssignment() {
+    studentas original("Kazys", "Grinius", {5, 6, 7}, 8, 5);
+    studentas moved("Antanas", "Smetona", {5, 6, 7}, 8, 3);
+    
+    moved = std::move(original);
+    
+    std::cout << "Move assignment test:" << std::endl;
+    std::cout << "Original (after move): " << original << std::endl; // Should be in unspecified state
+    std::cout << "Moved (after assignment): " << moved << std::endl;
+}
+
 int main()
 {
+    testCopyConstruction();
+    testMoveConstruction();
+    testCopyAssignment();
+    testMoveAssignment();
     vector<std::string> vardai = {"Jonas", "Vytautas", "Tomas", "Mindaugas", "Antanas", "Darius", "Rokas", "Matas", "Lukas"};
 
     vector<std::string> pavardes = {"Kazlauskas", "Jankauskas", "Petrauskas", "Stankevicius", "Vasiliauskas", "Vaigauskas", "Gilys", "Gavenas", "Gruodis"};
