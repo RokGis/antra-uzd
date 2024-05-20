@@ -10,6 +10,8 @@ using namespace std;
 class zmogus {
 public:
     virtual ~zmogus() = default;
+   protected:
+    zmogus() {}
 };
 
 #endif // ZMOGUS_H
