@@ -59,9 +59,9 @@
 
 Pastaba: Įsitikinkite, kad jūsų sistemoje įdiegta GNU Make paslauga, kad galėtumėte naudoti Makefile komandas. Taip pat atkreipkite dėmesį, kad Makefile, `.cpp` bei `.h` failai būtų viename (projekte) aplanke.
 
-![image](https://github.com/RokGis/antra-uzd/assets/147180109/f07d41b6-ba3d-48e7-924b-5c2bf3519270)
+![image](https://github.com/RokGis/antra-uzd/assets/147180109/0439e67d-17a9-491f-b2e9-a81adcbab209)
 
-![att -JquttUXDyGpHpel21yB5OPPZXtgGpfVgU0DJ4P36d0](https://github.com/RokGis/antra-uzd/assets/147180109/20d710f2-1e66-4bf0-8293-3bc21d2095b7)
+<img width="535" alt="Pasted Graphic" src="https://github.com/RokGis/antra-uzd/assets/147180109/83566f47-f36a-417e-bf1e-69a9573db00b">
 
 # Duomenų Įvedimas ir Išvedimas
 
