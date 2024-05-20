@@ -31,7 +31,7 @@ extern int tlaikas;
 void skaitymasisfailo(vector<studentas> &A, char budas, char ivedbudas);
 void isvedimas(vector<studentas> &A, char budas);
 void pazymiuived(studentas &new_studentas, char budas, int ivedbudas);
-void skaiciavimas(studentas &new_studentas, int sum, char budas);
+void skaiciavimas(studentas &new_studentas, char budas);
 void irasymasifaila(vector<studentas> &A, char budas);
 bool rikiavimasgbalas(const studentas &a, const studentas &b);
 bool rikiavimasvardas(const studentas &a, const studentas &b);
