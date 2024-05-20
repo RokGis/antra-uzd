@@ -63,6 +63,9 @@ Pastaba: Įsitikinkite, kad jūsų sistemoje įdiegta GNU Make paslauga, kad gal
 
 <img width="535" alt="Pasted Graphic" src="https://github.com/RokGis/antra-uzd/assets/147180109/83566f47-f36a-417e-bf1e-69a9573db00b">
 
+<img width="837" alt="image" src="https://github.com/RokGis/antra-uzd/assets/147180109/6f98a71f-cabd-4091-a07f-426e74a93cc0">
+
+
 # Duomenų Įvedimas ir Išvedimas
 
 ## Įvestis
