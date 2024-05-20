@@ -71,7 +71,7 @@ friend std::istream &operator>>(std::istream &in, studentas &kit){
 
     friend std::ostream &operator<<(std::ostream &out, const studentas &kit)
    {
-        out << setw(21) << left << kit.vardas << setw(21) << left << kit.pavarde << setprecision(3) << left << kit.gbalas << '\n';
+        out << setw(25) << left << kit.vardas << setw(25) << left << kit.pavarde << setprecision(3) << left << kit.gbalas << '\n';
         return out;
   }
 
