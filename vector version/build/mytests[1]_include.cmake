@@ -1,5 +1,0 @@
-if(EXISTS "/Users/rokas/Documents/2 semestras/objektinis programavimas/antra uzduotis/objektinis-programavimas/vector version/build/mytests[1]_tests.cmake")
-  include("/Users/rokas/Documents/2 semestras/objektinis programavimas/antra uzduotis/objektinis-programavimas/vector version/build/mytests[1]_tests.cmake")
-else()
-  add_test(mytests_NOT_BUILT mytests_NOT_BUILT)
-endif()
