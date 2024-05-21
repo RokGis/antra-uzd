@@ -2,6 +2,7 @@
 #include "errorfinder.h"
 #include"filegenerator.h"
 #include "studentas.h"
+#include "zmogus.h"
 
 void testCopyConstruction() {
     studentas original("Rokas", "Gilys", {5, 6, 7}, 8, 5);

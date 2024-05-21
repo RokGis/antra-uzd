@@ -36,6 +36,14 @@ private:
 
     studentas &operator=(studentas &&kit) noexcept;
 
+bool operator==(const studentas& kit) const {
+    return vardas == kit.vardas &&
+            pavarde == kit.pavarde &&
+            ndrez == kit.ndrez &&
+            erez == kit.erez &&
+            gbalas == kit.gbalas;
+}
+
 friend std::istream &operator>>(std::istream &in, studentas &kit){
   kit.ndrez.clear();
   int sum = 0;
