@@ -14,8 +14,6 @@ using namespace std;
 
 class studentas : public zmogus {
 private:
-  string vardas;
-  string pavarde;
   vector<int> ndrez;
   int erez;
   double gbalas;

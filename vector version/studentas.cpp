@@ -5,7 +5,10 @@ studentas::studentas() : erez(0), gbalas(0.0) {}
 
 
 studentas::studentas(const string& v, const string& p, const vector<int>& nd, int e, double g)
-    : vardas(v), pavarde(p), ndrez(nd), erez(e), gbalas(g) {}
+    : zmogus(), ndrez(nd), erez(e), gbalas(g) {
+    setVardas(v);
+    setPavarde(p);
+}
 
 // destruktorius
 studentas::~studentas() {
@@ -13,13 +16,12 @@ ndrez.clear();}
 
 // copy konstruktorius
 studentas::studentas(const studentas& kit) 
-    : vardas(kit.vardas), pavarde(kit.pavarde), ndrez(kit.ndrez), erez(kit.erez), gbalas(kit.gbalas) {}
+    : zmogus(kit), ndrez(kit.ndrez), erez(kit.erez), gbalas(kit.gbalas) {}
 
 // priskyrimo operatorius
 studentas& studentas::operator=(const studentas& kit) {
     if (this != &kit) {
-        vardas = kit.vardas;
-        pavarde = kit.pavarde;
+        zmogus::operator=(kit);
         ndrez = kit.ndrez;
         erez = kit.erez;
         gbalas = kit.gbalas;
@@ -29,7 +31,7 @@ studentas& studentas::operator=(const studentas& kit) {
 
 // move konstruktorius
 studentas::studentas(studentas&& kit) noexcept
-    : vardas(std::move(kit.vardas)), pavarde(std::move(kit.pavarde)), ndrez(std::move(kit.ndrez)), erez(kit.erez), gbalas(kit.gbalas) {}
+    : zmogus(std::move(kit)), ndrez(std::move(kit.ndrez)), erez(kit.erez), gbalas(kit.gbalas) {}
 
 // priskyrimo operatorius
 studentas& studentas::operator=(studentas&& kit) noexcept {
