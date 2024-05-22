@@ -1,4 +1,5 @@
 var searchData=
 [
-  ['_5f_5fhas_5finclude_0',['__has_include',['../_c_make_c_compiler_id_8c.html#ae5510d82e4946f1656f4969911c54736',1,'__has_include:&#160;CMakeCCompilerId.c'],['../_c_make_c_x_x_compiler_id_8cpp.html#ae5510d82e4946f1656f4969911c54736',1,'__has_include:&#160;CMakeCXXCompilerId.cpp']]]
+  ['budas_0',['budas',['../classstudentas.html#a57c9102be1008bdf4496bae2d93a93b6',1,'studentas']]],
+  ['budaspatikra_1',['budaspatikra',['../errorfinder_8cpp.html#a9dc478a0d284846092d193d9f7fdd99e',1,'budaspatikra():&#160;errorfinder.cpp'],['../errorfinder_8h.html#a9dc478a0d284846092d193d9f7fdd99e',1,'budaspatikra():&#160;errorfinder.cpp']]]
 ];

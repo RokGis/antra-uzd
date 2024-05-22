@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['line_0',['line',['../classstudentas.html#ab937bdc38cb946f3add383a64424bfe8',1,'studentas']]]
+  ['ndrez_0',['ndrez',['../classstudentas.html#ad540af884912e396e76e5e4c75cdcf37',1,'studentas']]]
 ];

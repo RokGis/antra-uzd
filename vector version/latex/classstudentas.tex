@@ -27,6 +27,8 @@ Inheritance diagram for studentas\+:\begin{figure}[H]
 \item 
 \mbox{\hyperlink{classstudentas}{studentas}} \& \mbox{\hyperlink{classstudentas_a3877a9ba8063b52156cf822656121769}{operator=}} (\mbox{\hyperlink{classstudentas}{studentas}} \&\&kit) noexcept
 \item 
+bool \mbox{\hyperlink{classstudentas_ae18d5f0a361f582d38b30e1dc08b59db}{operator==}} (const \mbox{\hyperlink{classstudentas}{studentas}} \&kit) const
+\item 
 string \mbox{\hyperlink{classstudentas_ac14e4b28176543a0b03970fcde7b044c}{get\+Vardas}} () const
 \item 
 string \mbox{\hyperlink{classstudentas_ac3b1292eafe14b4b48853f465e2a1d3c}{get\+Pavarde}} () const
@@ -52,7 +54,11 @@ void \mbox{\hyperlink{classstudentas_a4c13ff3bd56c7f6af7cf2893efda4bdd}{sort\+Nd
 \doxysubsection*{Public Member Functions inherited from \mbox{\hyperlink{classzmogus}{zmogus}}}
 \begin{DoxyCompactItemize}
 \item 
-virtual \mbox{\hyperlink{classzmogus_a5f6e15327f06f030f180391c6171ca53}{\texorpdfstring{$\sim$}{\string~}zmogus}} ()=default
+virtual \mbox{\hyperlink{classzmogus_a67d08c33049ff379f5c8b72745416239}{\texorpdfstring{$\sim$}{\string~}zmogus}} ()
+\item 
+virtual void \mbox{\hyperlink{classzmogus_aab9b9f037172b15d5a022dc748a6d045}{set\+Vardas}} (string v)
+\item 
+virtual void \mbox{\hyperlink{classzmogus_aa2276934487da6e9f82f3e00e6b82086}{set\+Pavarde}} (string p)
 \end{DoxyCompactItemize}
 \doxysubsubsection*{Public Attributes}
 \begin{DoxyCompactItemize}
@@ -63,10 +69,6 @@ char \mbox{\hyperlink{classstudentas_a57c9102be1008bdf4496bae2d93a93b6}{budas}}
 \end{DoxyCompactItemize}
 \doxysubsubsection*{Private Attributes}
 \begin{DoxyCompactItemize}
-\item 
-string \mbox{\hyperlink{classstudentas_a12c7418eb835240f31d00a3ebf7b22bf}{vardas}}
-\item 
-string \mbox{\hyperlink{classstudentas_a7ee17ba9f138bb97c25a92036318f0e8}{pavarde}}
 \item 
 vector$<$ int $>$ \mbox{\hyperlink{classstudentas_ad540af884912e396e76e5e4c75cdcf37}{ndrez}}
 \item 
@@ -82,10 +84,12 @@ std\+::istream \& \mbox{\hyperlink{classstudentas_abf6ce4d87645efeec772793b44096
 std\+::ostream \& \mbox{\hyperlink{classstudentas_a362402823d2f18f70af74ca99b246d43}{operator$<$$<$}} (std\+::ostream \&out, const \mbox{\hyperlink{classstudentas}{studentas}} \&kit)
 \end{DoxyCompactItemize}
 \doxysubsubsection*{Additional Inherited Members}
-\doxysubsection*{Protected Member Functions inherited from \mbox{\hyperlink{classzmogus}{zmogus}}}
+\doxysubsection*{Protected Attributes inherited from \mbox{\hyperlink{classzmogus}{zmogus}}}
 \begin{DoxyCompactItemize}
 \item 
-\mbox{\hyperlink{classzmogus_a3cb03824ec8269cf401cbf615e440833}{zmogus}} ()
+string \mbox{\hyperlink{classzmogus_ab79ef7e33cb25ed93458a93f49579d34}{vardas}}
+\item 
+string \mbox{\hyperlink{classzmogus_ae57250d8b5eec99e78c5bae3a0ab1856}{pavarde}}
 \end{DoxyCompactItemize}
 
 
@@ -145,13 +149,21 @@ std\+::ostream \& \mbox{\hyperlink{classstudentas_a362402823d2f18f70af74ca99b246
 \index{studentas@{studentas}!getPavarde@{getPavarde}}
 \index{getPavarde@{getPavarde}!studentas@{studentas}}
 \doxysubsubsection{\texorpdfstring{getPavarde()}{getPavarde()}}
-{\footnotesize\ttfamily string studentas\+::get\+Pavarde (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+{\footnotesize\ttfamily string studentas\+::get\+Pavarde (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [virtual]}}
+
+
+
+Implements \mbox{\hyperlink{classzmogus_ad983231cdb70168fbd8c846b431a8555}{zmogus}}.
 
 \Hypertarget{classstudentas_ac14e4b28176543a0b03970fcde7b044c}\label{classstudentas_ac14e4b28176543a0b03970fcde7b044c} 
 \index{studentas@{studentas}!getVardas@{getVardas}}
 \index{getVardas@{getVardas}!studentas@{studentas}}
 \doxysubsubsection{\texorpdfstring{getVardas()}{getVardas()}}
-{\footnotesize\ttfamily string studentas\+::get\+Vardas (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+{\footnotesize\ttfamily string studentas\+::get\+Vardas (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [virtual]}}
+
+
+
+Implements \mbox{\hyperlink{classzmogus_a19602e52d50cf319598d9c85fea8004a}{zmogus}}.
 
 \Hypertarget{classstudentas_a4144bb0987a3bf88b8a2071906cbf7b8}\label{classstudentas_a4144bb0987a3bf88b8a2071906cbf7b8} 
 \index{studentas@{studentas}!operator=@{operator=}}
@@ -164,6 +176,12 @@ std\+::ostream \& \mbox{\hyperlink{classstudentas_a362402823d2f18f70af74ca99b246
 \index{operator=@{operator=}!studentas@{studentas}}
 \doxysubsubsection{\texorpdfstring{operator=()}{operator=()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
 {\footnotesize\ttfamily \mbox{\hyperlink{classstudentas}{studentas}} \& studentas\+::operator= (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classstudentas}{studentas}} \&\&}]{kit }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [noexcept]}}
+
+\Hypertarget{classstudentas_ae18d5f0a361f582d38b30e1dc08b59db}\label{classstudentas_ae18d5f0a361f582d38b30e1dc08b59db} 
+\index{studentas@{studentas}!operator==@{operator==}}
+\index{operator==@{operator==}!studentas@{studentas}}
+\doxysubsubsection{\texorpdfstring{operator==()}{operator==()}}
+{\footnotesize\ttfamily bool studentas\+::operator== (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{classstudentas}{studentas}} \&}]{kit }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
 
 \Hypertarget{classstudentas_ad468ee85a54b952613b2fa3815b88ae2}\label{classstudentas_ad468ee85a54b952613b2fa3815b88ae2} 
 \index{studentas@{studentas}!setErez@{setErez}}
@@ -248,18 +266,6 @@ std\+::ostream \& \mbox{\hyperlink{classstudentas_a362402823d2f18f70af74ca99b246
 \index{ndrez@{ndrez}!studentas@{studentas}}
 \doxysubsubsection{\texorpdfstring{ndrez}{ndrez}}
 {\footnotesize\ttfamily vector$<$int$>$ studentas\+::ndrez\hspace{0.3cm}{\ttfamily [private]}}
-
-\Hypertarget{classstudentas_a7ee17ba9f138bb97c25a92036318f0e8}\label{classstudentas_a7ee17ba9f138bb97c25a92036318f0e8} 
-\index{studentas@{studentas}!pavarde@{pavarde}}
-\index{pavarde@{pavarde}!studentas@{studentas}}
-\doxysubsubsection{\texorpdfstring{pavarde}{pavarde}}
-{\footnotesize\ttfamily string studentas\+::pavarde\hspace{0.3cm}{\ttfamily [private]}}
-
-\Hypertarget{classstudentas_a12c7418eb835240f31d00a3ebf7b22bf}\label{classstudentas_a12c7418eb835240f31d00a3ebf7b22bf} 
-\index{studentas@{studentas}!vardas@{vardas}}
-\index{vardas@{vardas}!studentas@{studentas}}
-\doxysubsubsection{\texorpdfstring{vardas}{vardas}}
-{\footnotesize\ttfamily string studentas\+::vardas\hspace{0.3cm}{\ttfamily [private]}}
 
 
 

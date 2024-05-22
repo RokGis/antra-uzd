@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['pavarde_0',['pavarde',['../classstudentas.html#a7ee17ba9f138bb97c25a92036318f0e8',1,'studentas']]]
+  ['tlaikas_0',['tlaikas',['../functions_8cpp.html#a9c4532fc8d305799c894302db771255f',1,'tlaikas:&#160;functions.cpp'],['../functions_8h.html#a9c4532fc8d305799c894302db771255f',1,'tlaikas:&#160;functions.cpp']]]
 ];

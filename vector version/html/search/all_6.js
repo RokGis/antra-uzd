@@ -1,9 +1,8 @@
 var searchData=
 [
-  ['failugeneravimas_0',['failugeneravimas',['../filegenerator_8cpp.html#a2b62e606ab77ed985e7cb1c60ef8d31a',1,'failugeneravimas():&#160;filegenerator.cpp'],['../filegenerator_8h.html#a2b62e606ab77ed985e7cb1c60ef8d31a',1,'failugeneravimas():&#160;filegenerator.cpp']]],
-  ['fgeneravimopatikra_1',['fgeneravimopatikra',['../errorfinder_8cpp.html#adc2b5a4276abbc360db111439e53eaaa',1,'fgeneravimopatikra():&#160;errorfinder.cpp'],['../errorfinder_8h.html#adc2b5a4276abbc360db111439e53eaaa',1,'fgeneravimopatikra():&#160;errorfinder.cpp']]],
-  ['filegenerator_2ecpp_2',['filegenerator.cpp',['../filegenerator_8cpp.html',1,'']]],
-  ['filegenerator_2eh_3',['filegenerator.h',['../filegenerator_8h.html',1,'']]],
-  ['functions_2ecpp_4',['functions.cpp',['../functions_8cpp.html',1,'']]],
-  ['functions_2eh_5',['functions.h',['../functions_8h.html',1,'']]]
+  ['irasymasifaila_0',['irasymasifaila',['../functions_8cpp.html#a340fb696a23fffa5d6c53c4b78012c49',1,'irasymasifaila(vector&lt; studentas &gt; &amp;A, char budas):&#160;functions.cpp'],['../functions_8h.html#a340fb696a23fffa5d6c53c4b78012c49',1,'irasymasifaila(vector&lt; studentas &gt; &amp;A, char budas):&#160;functions.cpp']]],
+  ['irasymasifailak_1',['irasymasifailaK',['../functions_8cpp.html#a0acb9c2062cec8964dcc11dc88d8c31f',1,'irasymasifailaK(vector&lt; studentas &gt; &amp;A, vector&lt; studentas &gt; &amp;K, vector&lt; studentas &gt; &amp;V, char budas, int skistr):&#160;functions.cpp'],['../functions_8h.html#a0acb9c2062cec8964dcc11dc88d8c31f',1,'irasymasifailaK(vector&lt; studentas &gt; &amp;A, vector&lt; studentas &gt; &amp;K, vector&lt; studentas &gt; &amp;V, char budas, int skistr):&#160;functions.cpp']]],
+  ['isvedbudpatikra_2',['isvedbudpatikra',['../errorfinder_8cpp.html#ae49285ec9434e306e68d9dff79d3a09c',1,'isvedbudpatikra():&#160;errorfinder.cpp'],['../errorfinder_8h.html#ae49285ec9434e306e68d9dff79d3a09c',1,'isvedbudpatikra():&#160;errorfinder.cpp']]],
+  ['isvedimas_3',['isvedimas',['../functions_8cpp.html#ab86019e39a66eab7c6d326986303da76',1,'isvedimas(vector&lt; studentas &gt; &amp;A, char budas):&#160;functions.cpp'],['../functions_8h.html#ab86019e39a66eab7c6d326986303da76',1,'isvedimas(vector&lt; studentas &gt; &amp;A, char budas):&#160;functions.cpp']]],
+  ['ivedbudpatikra_4',['ivedbudpatikra',['../errorfinder_8cpp.html#aa9f51521bcc073342193506d868c0294',1,'ivedbudpatikra():&#160;errorfinder.cpp'],['../errorfinder_8h.html#aa9f51521bcc073342193506d868c0294',1,'ivedbudpatikra():&#160;errorfinder.cpp']]]
 ];

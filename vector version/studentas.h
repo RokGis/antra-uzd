@@ -14,8 +14,6 @@ using namespace std;
 
 class studentas : public zmogus {
 private:
-  string vardas;
-  string pavarde;
   vector<int> ndrez;
   int erez;
   double gbalas;
@@ -36,7 +34,7 @@ private:
 
     studentas &operator=(studentas &&kit) noexcept;
 
-bool operator==(const studentas& kit) const {
+    bool operator==(const studentas& kit) const {
     return vardas == kit.vardas &&
             pavarde == kit.pavarde &&
             ndrez == kit.ndrez &&

@@ -1,8 +1,7 @@
 var searchData=
 [
-  ['c_5fversion_0',['C_VERSION',['../_c_make_c_compiler_id_8c.html#adaee3ee7c5a7a22451ea25e762e1d7d5',1,'CMakeCCompilerId.c']]],
-  ['cmakeccompilerid_2ec_1',['CMakeCCompilerId.c',['../_c_make_c_compiler_id_8c.html',1,'']]],
-  ['cmakecxxcompilerid_2ecpp_2',['CMakeCXXCompilerId.cpp',['../_c_make_c_x_x_compiler_id_8cpp.html',1,'']]],
-  ['compiler_5fid_3',['COMPILER_ID',['../_c_make_c_compiler_id_8c.html#a81dee0709ded976b2e0319239f72d174',1,'COMPILER_ID:&#160;CMakeCCompilerId.c'],['../_c_make_c_x_x_compiler_id_8cpp.html#a81dee0709ded976b2e0319239f72d174',1,'COMPILER_ID:&#160;CMakeCXXCompilerId.cpp']]],
-  ['cxx_5fstd_4',['CXX_STD',['../_c_make_c_x_x_compiler_id_8cpp.html#a34cc889e576a1ae6c84ae9e0a851ba21',1,'CMakeCXXCompilerId.cpp']]]
+  ['erez_0',['erez',['../classstudentas.html#a08b05b38a08b67e2283bb830055e6ca7',1,'studentas']]],
+  ['erezpatikra_1',['erezpatikra',['../errorfinder_8cpp.html#a364b9e2cf96ff0196c534ce02b02a2a3',1,'erezpatikra():&#160;errorfinder.cpp'],['../errorfinder_8h.html#a364b9e2cf96ff0196c534ce02b02a2a3',1,'erezpatikra():&#160;errorfinder.cpp']]],
+  ['errorfinder_2ecpp_2',['errorfinder.cpp',['../errorfinder_8cpp.html',1,'']]],
+  ['errorfinder_2eh_3',['errorfinder.h',['../errorfinder_8h.html',1,'']]]
 ];
