@@ -48,3 +48,14 @@ TEST_CASE("Move Assignment Operator", "[Move Assignment Operator]") {
     REQUIRE(moved == studentas("Test", "Test", {1, 2, 3}, 4, 5.0));
 }
 
+TEST_CASE("skaiciavimas", "skaiciavimas") {
+    WARN("REQUIRE stops at [skaiciavimas] failure:");
+    studentas original("Test", "Test", {1, 2, 3}, 4, 6.0);
+    char budas = 'v';
+    //original.setGbalas(5.0);
+    skaiciavimas(original, budas);
+
+    //double rez = 5.0;
+    REQUIRE(original.getGbalas() ==  3.2);
+}
+
