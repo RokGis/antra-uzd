@@ -31,7 +31,9 @@ studentas& studentas::operator=(const studentas& kit) {
 
 // move konstruktorius
 studentas::studentas(studentas&& kit) noexcept
-    : zmogus(std::move(kit)), ndrez(std::move(kit.ndrez)), erez(kit.erez), gbalas(kit.gbalas) {}
+    : zmogus(std::move(kit)), ndrez(std::move(kit.ndrez)), erez(kit.erez), gbalas(kit.gbalas) {         
+        kit.erez = 0;
+        kit.gbalas = 0;}
 
 // priskyrimo operatorius
 studentas& studentas::operator=(studentas&& kit) noexcept {
