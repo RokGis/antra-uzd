@@ -32,6 +32,9 @@ studentas& studentas::operator=(const studentas& kit) {
 // move konstruktorius
 studentas::studentas(studentas&& kit) noexcept
     : zmogus(std::move(kit)), ndrez(std::move(kit.ndrez)), erez(kit.erez), gbalas(kit.gbalas) {         
+        vardas = std::move(kit.vardas);
+        pavarde = std::move(kit.pavarde);
+        ndrez = std::move(kit.ndrez);
         kit.erez = 0;
         kit.gbalas = 0;}
 
