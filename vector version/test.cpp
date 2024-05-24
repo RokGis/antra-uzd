@@ -3,6 +3,7 @@
 #include "vector.h"
 
 TEST_CASE("Default Constructor", "[Default Constructor]") {
+    WARN("REQUIRE stops at [Default Constructor] failure:");
     Vector<int> v;
     REQUIRE(v.size() == 0);
     REQUIRE(v.capacity() == 0);
@@ -10,6 +11,7 @@ TEST_CASE("Default Constructor", "[Default Constructor]") {
 }
 
 TEST_CASE("Initializer List Constructor", "[Initializer List Constructor]") {
+    WARN("REQUIRE stops at [Initializer List Constructor] failure:");
     Vector<int> v = {1, 2, 3, 4, 5};
     REQUIRE(v.size() == 5);
     REQUIRE(v.capacity() >= 5);
@@ -19,6 +21,7 @@ TEST_CASE("Initializer List Constructor", "[Initializer List Constructor]") {
 }
 
 TEST_CASE("Copy Constructor", "[Copy Constructor]") {
+    WARN("REQUIRE stops at [Copy Constructor] failure:");
     Vector<int> v1 = {1, 2, 3};
     Vector<int> v2(v1);
     REQUIRE(v2.size() == v1.size());
@@ -28,6 +31,7 @@ TEST_CASE("Copy Constructor", "[Copy Constructor]") {
 }
 
 TEST_CASE("Move Constructor", "[Move Constructor]") {
+    WARN("REQUIRE stops at [Move Constructor] failure:");
     Vector<int> v1 = {1, 2, 3};
     Vector<int> v2(std::move(v1));
     REQUIRE(v1.size() == 0);
@@ -35,6 +39,7 @@ TEST_CASE("Move Constructor", "[Move Constructor]") {
 }
 
 TEST_CASE("Copy Assignment Operator", "[Copy Assignment Operator]") {
+    WARN("REQUIRE stops at [Copy Assignment Operator] failure:");
     Vector<int> v1 = {1, 2, 3};
     Vector<int> v2;
     v2 = v1;
@@ -45,6 +50,7 @@ TEST_CASE("Copy Assignment Operator", "[Copy Assignment Operator]") {
 }
 
 TEST_CASE("Move Assignment Operator", "[Move Assignment Operator]") {
+    WARN("REQUIRE stops at [Move Assignment Operator] failure:");
     Vector<int> v1 = {1, 2, 3};
     Vector<int> v2;
     v2 = std::move(v1);
@@ -53,6 +59,7 @@ TEST_CASE("Move Assignment Operator", "[Move Assignment Operator]") {
 }
 
 TEST_CASE("Element Access", "[Element Access]") {
+    WARN("REQUIRE stops at [Element Access] failure:");
     Vector<int> v = {1, 2, 3};
     REQUIRE(v[0] == 1);
     REQUIRE(v.at(1) == 2);
@@ -61,6 +68,7 @@ TEST_CASE("Element Access", "[Element Access]") {
 }
 
 TEST_CASE("Modifiers", "[Modifiers]") {
+    WARN("REQUIRE stops at [Modifiers] failure:");
     Vector<int> v;
     v.push_back(1);
     REQUIRE(v.size() == 1);
@@ -83,6 +91,7 @@ TEST_CASE("Modifiers", "[Modifiers]") {
 }
 
 TEST_CASE("Iterators", "[Iterators]") {
+    WARN("REQUIRE stops at [Iterators] failure:");
     Vector<int> v = {1, 2, 3};
     int sum = 0;
     for (auto it = v.begin(); it != v.end(); ++it) {
