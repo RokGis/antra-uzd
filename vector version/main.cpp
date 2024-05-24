@@ -52,16 +52,24 @@ int main()
     testMoveAssignment();
 
     // Pradėti v1 užpildymo laiko matavimą
+    auto start = high_resolution_clock::now();
     unsigned int sz = 10000;  // 100000, 1000000, 10000000, 100000000
     std::vector<int> v1;
     for (int i = 1; i <= sz; ++i)
     v1.push_back(i);
+    auto stop = high_resolution_clock::now();
+    auto duration = duration_cast<milliseconds>(stop - start);
+    cout << "std::vector pildymas truko: " << duration.count() << " milliseconds" << endl;
     // Baigti v1 užpildymo laiko matavimą
 
     // Pradėti v2 užpildymo laiko matavimą
+    uto start = high_resolution_clock::now();
     Vector<int> v2;
     for (int i = 1; i <= sz; ++i)
     v2.push_back(i);
+    auto stop = high_resolution_clock::now();
+    auto duration = duration_cast<milliseconds>(stop - start);
+    cout << "Vector pildymas truko: " << duration.count() << " milliseconds" << endl;
     // Baigti v2 užpildymo laiko matavimą 
 
     // studentas B;
