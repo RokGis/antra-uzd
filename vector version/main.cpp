@@ -18,7 +18,7 @@ void testMoveConstruction() {
     studentas moved(std::move(original));
     
     std::cout << "Move construction test:" << std::endl;
-    std::cout << "Original (after move): " << original << std::endl; // Should be in unspecified state
+    std::cout << "Original (after move): " << original << std::endl;
     std::cout << "Moved: " << moved << std::endl;
 }
 
@@ -40,7 +40,7 @@ void testMoveAssignment() {
     moved = std::move(original);
     
     std::cout << "Move assignment test:" << std::endl;
-    std::cout << "Original (after move): " << original << std::endl; // Should be in unspecified state
+    std::cout << "Original (after move): " << original << std::endl;
     std::cout << "Moved (after assignment): " << moved << std::endl;
 }
 
