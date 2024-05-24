@@ -64,7 +64,10 @@
     "map": "cpp",
     "set": "cpp",
     "span": "cpp",
-    "utility": "cpp"
+    "utility": "cpp",
+    "future": "cpp",
+    "regex": "cpp",
+    "stack": "cpp"
   },
   "C_Cpp_Runner.msvcBatchPath": "",
   "C_Cpp_Runner.cCompilerPath": "clang",

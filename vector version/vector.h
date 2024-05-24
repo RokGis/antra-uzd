@@ -11,6 +11,7 @@ private:
     T* data; // Pointer to the dynamically allocated array
     size_t capacity_; // Capacity of the array
     size_t length; // Number of elements in the array
+    size_t reallocations;
 
 public:
     // Member types
@@ -100,15 +101,16 @@ public:
     }
 
     void reserve(size_t new_capacity) {
-        if (new_capacity <= capacity_) {
-            return;
+            if (new_capacity <= capacity_) {
+                return;
+            }
+            ++reallocations; // Increment reallocations count
+            T* new_data = new T[new_capacity];
+            std::copy(data, data + length, new_data);
+            delete[] data;
+            data = new_data;
+            capacity_ = new_capacity;
         }
-        T* new_data = new T[new_capacity];
-        std::copy(data, data + length, new_data);
-        delete[] data;
-        data = new_data;
-        capacity_ = new_capacity;
-    }
 
     void resize(size_t new_size, const T& value = T()) {
         if (new_size > length) {
@@ -247,6 +249,11 @@ public:
     bool operator==(const Vector& other) const
     {
         return false;
+    }
+
+    // Function to get the number of reallocations
+    size_t getReallocationCount() const {
+        return reallocations;
     }
 };
 

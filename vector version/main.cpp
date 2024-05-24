@@ -56,7 +56,7 @@ int main()
     // testMoveAssignment();
 
     // Pradėti v1 užpildymo laiko matavimą
-    int reallocations_v1 = 0;
+    size_t reallocations_v1 = 0;
     auto start_v1 = high_resolution_clock::now();
     unsigned int sz = 100000000;  // 100000, 1000000, 10000000, 100000000
     vector<int> v1;
@@ -69,6 +69,7 @@ int main()
     auto stop_v1 = high_resolution_clock::now();
     auto duration_v1 = duration_cast<microseconds>(stop_v1 - start_v1);
     cout << "std::vector pildymas truko: " << duration_v1.count() << " microseconds" << endl;
+    cout << "std::vector atminties perskirstymai: " << reallocations_v1 << endl;
     // Baigti v1 užpildymo laiko matavimą
 
     // Pradėti v2 užpildymo laiko matavimą
@@ -79,6 +80,7 @@ int main()
     auto stop_v2 = high_resolution_clock::now();
     auto duration_v2 = duration_cast<microseconds>(stop_v2 - start_v2);
     cout << "Vector pildymas truko: " << duration_v2.count() << " microseconds" << endl;
+    cout << "Vector atminties perskirstymai: " << v2.getReallocationCount() << endl;
     // Baigti v2 užpildymo laiko matavimą 
 
     // studentas B;
