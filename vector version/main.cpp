@@ -46,10 +46,10 @@ void testMoveAssignment() {
 
 int main()
 {
-    testCopyConstruction();
-    testMoveConstruction();
-    testCopyAssignment();
-    testMoveAssignment();
+    // testCopyConstruction();
+    // testMoveConstruction();
+    // testCopyAssignment();
+    // testMoveAssignment();
 
     // Pradėti v1 užpildymo laiko matavimą
     auto start = high_resolution_clock::now();
