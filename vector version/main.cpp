@@ -2,6 +2,7 @@
 #include "errorfinder.h"
 #include"filegenerator.h"
 #include "studentas.h"
+#include "vector.h"
 
 void testCopyConstruction() {
     studentas original("Rokas", "Gilys", {5, 6, 7}, 8, 5);
@@ -80,9 +81,9 @@ int main()
         char ski;
         int skistr;
 
-        vector<studentas> A; //sudaromas vektorius
-        vector<studentas> K; 
-        vector<studentas> V; 
+        Vector<studentas> A; //sudaromas vektorius
+        Vector<studentas> K; 
+        Vector<studentas> V; 
 
         if ((ivedbudas == 1 || ivedbudas == 2) && duomskait == 'f')
         {

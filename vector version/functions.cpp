@@ -4,7 +4,7 @@
 
 int tlaikas = 0;
 
-void skaitymasisfailo(vector<studentas> &A, char budas, char ivedbudas) {
+void skaitymasisfailo(Vector<studentas> &A, char budas, char ivedbudas) {
     int tlaikas = 0;
     auto start = high_resolution_clock::now();
     studentas new_studentas;
@@ -37,7 +37,7 @@ void skaitymasisfailo(vector<studentas> &A, char budas, char ivedbudas) {
     }
 }
 
-void irasymasifaila(vector<studentas> &A, char budas)
+void irasymasifaila(Vector<studentas> &A, char budas)
 {
     auto start = high_resolution_clock::now(); 
     ofstream out("kursiokai.txt");
@@ -61,7 +61,7 @@ void irasymasifaila(vector<studentas> &A, char budas)
     tlaikas += duration.count();
 }
 
-void isvedimas(vector<studentas> &A, char budas)
+void isvedimas(Vector<studentas> &A, char budas)
 {
     char isvedbud;
     isvedbud = isvedbudpatikra();
@@ -90,7 +90,7 @@ void isvedimas(vector<studentas> &A, char budas)
 void pazymiuived(studentas &new_studentas, char budas, int ivedbudas)
 {
     int sum = 0;
-    vector<int> pazymysVector;
+    Vector<int> pazymysVector;
     int pazymys;
     if (ivedbudas == 1){
         cout << "Iveskite studento namu darbu rezultata arba „11“, jeigu norite uzbaigti rezultatu vedima: " << endl;}
@@ -182,7 +182,7 @@ bool rikiavimaspavarde(const studentas &a, const studentas &b)
     return a.getPavarde() < b.getPavarde();
 }
 
-void rikiavimas(vector<studentas> &A)
+void rikiavimas(Vector<studentas> &A)
 {
     char rikbudas;
     rikbudas = rikbudpatikra();
@@ -200,7 +200,7 @@ void rikiavimas(vector<studentas> &A)
 }
 
 //1 strategija
-void skirstymas1(vector<studentas> &A, vector<studentas> &K, vector<studentas> &V)
+void skirstymas1(Vector<studentas> &A, Vector<studentas> &K, Vector<studentas> &V)
 {
     auto start = high_resolution_clock::now();
     for (int i = 0; i < A.size(); i++)
@@ -222,7 +222,7 @@ void skirstymas1(vector<studentas> &A, vector<studentas> &K, vector<studentas> &
 }
 
 //2 strategija
-void skirstymas2(vector<studentas> &A, vector<studentas> &V)
+void skirstymas2(Vector<studentas> &A, Vector<studentas> &V)
 {
     sort(A.begin(), A.end(), rikiavimasgbalas);
     auto start = high_resolution_clock::now();
@@ -242,7 +242,7 @@ void skirstymas2(vector<studentas> &A, vector<studentas> &V)
 }
 
 //3 strategija
-void skirstymas3(vector<studentas> &A, vector<studentas> &K, vector<studentas> &V)
+void skirstymas3(Vector<studentas> &A, Vector<studentas> &K, Vector<studentas> &V)
 {
     auto start = high_resolution_clock::now();
 
@@ -265,7 +265,7 @@ void skirstymas3(vector<studentas> &A, vector<studentas> &K, vector<studentas> &
     tlaikas += duration.count();
 }
 
-void irasymasifailaK(vector<studentas> &A, vector<studentas> &K, vector<studentas> &V, char budas, int skistr)
+void irasymasifailaK(Vector<studentas> &A, Vector<studentas> &K, Vector<studentas> &V, char budas, int skistr)
 {
     auto start = high_resolution_clock::now(); 
     ofstream outK("kietiakai.txt");

@@ -2,6 +2,7 @@
 #define STUDENTAS_H
 
 #include "zmogus.h"
+#include "vector.h"
 #include "errorfinder.h"
 #include <iostream>
 #include <iomanip>
@@ -14,7 +15,7 @@ using namespace std;
 
 class studentas : public zmogus {
 private:
-  vector<int> ndrez;
+  Vector<int> ndrez;
   int erez;
   double gbalas;
   // interfeisas
@@ -22,7 +23,7 @@ private:
     string line;
     char budas;
     studentas(); // default konstruktorius
-    studentas(const string &v, const string &p, const vector<int> &nd, int e, double g);
+    studentas(const string &v, const string &p, const Vector<int> &nd, int e, double g);
 
     ~studentas(); // destruktorius
 
@@ -75,13 +76,13 @@ friend std::istream &operator>>(std::istream &in, studentas &kit){
 
     string getVardas() const { return vardas; }   // get'eriai
     string getPavarde() const { return pavarde; } // get'eriai
-    vector<int> getNdrez() const { return ndrez; }
+    Vector<int> getNdrez() const { return ndrez; }
     int getErez() const { return erez; }
     double getGbalas() const { return gbalas; } // get'eriai
 
     void setVardas(const string &v) { vardas = v; }
     void setPavarde(const string &p) { pavarde = p; }
-    void setNdrez(const vector<int> &nd) { ndrez = nd; }
+    void setNdrez(const Vector<int> &nd) { ndrez = nd; }
     void setErez(int e) { erez = e; }
     void setGbalas(double g) { gbalas = g; } // set'eriai
 
