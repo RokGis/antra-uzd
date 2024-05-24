@@ -56,11 +56,16 @@ int main()
     // testMoveAssignment();
 
     // Pradėti v1 užpildymo laiko matavimą
+    int reallocations_v1 = 0;
     auto start_v1 = high_resolution_clock::now();
-    unsigned int sz = 100000;  // 100000, 1000000, 10000000, 100000000
+    unsigned int sz = 100000000;  // 100000, 1000000, 10000000, 100000000
     vector<int> v1;
-    for (int i = 1; i <= sz; ++i)
+    for (int i = 1; i <= sz; ++i){
         v1.push_back(i);
+        if (v1.size() == v1.capacity()) {
+            ++reallocations_v1;
+        }
+        }
     auto stop_v1 = high_resolution_clock::now();
     auto duration_v1 = duration_cast<microseconds>(stop_v1 - start_v1);
     cout << "std::vector pildymas truko: " << duration_v1.count() << " microseconds" << endl;
