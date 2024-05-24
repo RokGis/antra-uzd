@@ -11,7 +11,7 @@ void skaitymasisfailo(Vector<studentas> &A, char budas, char ivedbudas) {
     new_studentas.budas = 'f';
     
     try {
-        ifstream in("studentai10000.txt");
+        ifstream in("studentai10000000.txt");
         if (!in.is_open()) {
             throw runtime_error("Nepavyko atidaryti failo.");
         }

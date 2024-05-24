@@ -24,7 +24,6 @@ void testMoveConstruction() {
 
 void testCopyAssignment() {
     studentas original("Jonas", "Kazlauskas", {5, 6, 7}, 8, 5);
-   // cout << "Zdrw" << original.getVardas() << " " << original.getPavarde()<<endl;
     studentas copy("Bronislovas", "Jonskis", {5, 6, 7}, 8, 4);
 
     copy = original;
