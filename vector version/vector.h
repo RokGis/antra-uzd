@@ -8,9 +8,9 @@
 template <typename T>
 class Vector {
 private:
-    T* data; // Pointer to the dynamically allocated array
-    size_t capacity_; // Capacity of the array
-    size_t length; // Number of elements in the array
+    T* data = nullptr; // Pointer to the dynamically allocated array
+    size_t capacity_ = 0; // Capacity of the array
+    size_t length = 0; // Number of elements in the array
     size_t reallocations;
 
 public:
