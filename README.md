@@ -1,4 +1,11 @@
 # objektinis-programavimas
+### Diegimas:
+1. Atsisiųskite projekto zip failą.
+2. Išskleiskite zip failą kompiuteryje.
+3. Atidarykite ProgramInstallSetup aplanką.
+4. Paleiskite ProgramInstallSetup.msi arba setup.exe failą.
+5. Sekite diegimo instrukcijas.
+6. Programos ikonėlė rasite ant darbalaukio (Desktop) ir prie „Start“ programėlių. Gero naudojimosi!
 ### Naudotojo sąveikos vadovas:
 
 1. **Pasirinkimas Sugeneruoti arba Nuskaityti Failą su Studentais:**
@@ -67,7 +74,7 @@ Pastaba: Įsitikinkite, kad jūsų sistemoje įdiegta GNU Make paslauga, kad gal
 
 ![image](https://github.com/RokGis/antra-uzd/assets/147180109/1dfb0a65-3f4c-4dd4-a183-fcaf34827e60)
 
-<img width="535" alt="Pasted Graphic" src="https://github.com/RokGis/antra-uzd/assets/147180109/83566f47-f36a-417e-bf1e-69a9573db00b">
+![image](https://github.com/RokGis/antra-uzd/assets/147180109/496c428d-85eb-44f8-bb2e-87f3257c970a)
 
 <img width="837" alt="image" src="https://github.com/RokGis/antra-uzd/assets/147180109/6f98a71f-cabd-4091-a07f-426e74a93cc0">
 
