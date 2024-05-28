@@ -55,8 +55,7 @@ int main()
     // testCopyAssignment();
     // testMoveAssignment();
 
-    
-    // size_t reallocations_v1 = 0;
+        // size_t reallocations_v1 = 0;
     // auto start_v1 = high_resolution_clock::now(); // Pradėti v1 užpildymo laiko matavimą
     // unsigned int sz = 100000000;  // 100000, 1000000, 10000000, 100000000
     // vector<int> v1;

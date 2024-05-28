@@ -8,13 +8,12 @@
 template <typename T>
 class Vector {
 private:
-    T* data = nullptr; // Pointer to the dynamically allocated array
-    size_t capacity_ = 0; // Capacity of the array
-    size_t length = 0; // Number of elements in the array
+    T* data = nullptr;
+    size_t capacity_ = 0;
+    size_t length = 0;
     size_t reallocations;
 
 public:
-    // Member types
     using value_type = T;
     using reference = T&;
     using const_reference = const T&;
@@ -24,7 +23,6 @@ public:
     // Constructor
     Vector() : data(nullptr), capacity_(0), length(0) {}
 
-    // Constructor with initializer list
     Vector(std::initializer_list<T> init) : data(nullptr), capacity_(0), length(0) {
         reserve(init.size());
         for (const T& value : init) {
@@ -81,9 +79,6 @@ public:
         return *this;
     }
 
-    // Member functions
-
-    // Capacity
     size_t size() const {
         return length;
     }
